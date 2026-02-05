@@ -1,16 +1,11 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import './styles/app.css';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import FeaturePillars from './components/FeaturePillars';
-import AIDashboardShowcase from './components/AIDashboardShowcase';
-import CaseLabFlow from './components/CaseLabFlow';
-import CommunityPreview from './components/CommunityPreview';
-import TrustStrip from './components/TrustStrip';
-import FinalCTA from './components/FinalCTA';
-import Footer from './components/Footer';
+import '../styles/app.css';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import HomePage from '../pages/home/HomePage';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(true);
@@ -35,13 +30,11 @@ function App() {
   return (
     <div className={`medicoed-app ${isDarkTheme ? 'medicoed-dark-theme' : 'medicoed-light-theme'}`}>
       <Header isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
-      <Hero isDarkTheme={isDarkTheme} />
-      <FeaturePillars  isDarkTheme={isDarkTheme} />
-      <AIDashboardShowcase  isDarkTheme={isDarkTheme} />
-      <CaseLabFlow  isDarkTheme={isDarkTheme} />
-      <CommunityPreview  isDarkTheme={isDarkTheme} />
-      <TrustStrip  isDarkTheme={isDarkTheme} />
-      <FinalCTA  isDarkTheme={isDarkTheme} />
+      <Routes>
+        <Route path="/" element={<HomePage isDarkTheme={isDarkTheme} />} />
+        {/* <Route path="/dashboard/*" element={<Dashboard />} /> */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
       <Footer isDarkTheme={isDarkTheme} />
     </div>
   );

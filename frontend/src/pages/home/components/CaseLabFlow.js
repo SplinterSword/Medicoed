@@ -10,7 +10,6 @@ import {
   FaBookMedical,
   FaHandshake,
   FaTrophy,
-  FaBook
 } from 'react-icons/fa';
 import '../styles/CaseLabFlow.css';
 
