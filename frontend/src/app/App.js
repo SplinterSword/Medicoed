@@ -1,16 +1,16 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import './styles/app.css';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import FeaturePillars from './components/FeaturePillars';
-import AIDashboardShowcase from './components/AIDashboardShowcase';
-import CaseLabFlow from './components/CaseLabFlow';
-import CommunityPreview from './components/CommunityPreview';
-import TrustStrip from './components/TrustStrip';
-import FinalCTA from './components/FinalCTA';
-import Footer from './components/Footer';
+import '../styles/app.css';
+import Header from '../components/Header';
+import Hero from '../components/Hero';
+import FeaturePillars from '../components/FeaturePillars';
+import AIDashboardShowcase from '../components/AIDashboardShowcase';
+import CaseLabFlow from '../components/CaseLabFlow';
+import CommunityPreview from '../components/CommunityPreview';
+import TrustStrip from '../components/TrustStrip';
+import FinalCTA from '../components/FinalCTA';
+import Footer from '../components/Footer';
 
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(true);
