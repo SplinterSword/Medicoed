@@ -55,6 +55,11 @@
   box-shadow: var(--medicoed-shadow-glow);
 }
 
+.medicoed-logo-img {
+  overflow: hidden;
+  border-radius: var(--medicoed-radius-lg);
+}
+
 .medicoed-logo-text {
   font-size: 1.25rem;
   font-weight: 700;

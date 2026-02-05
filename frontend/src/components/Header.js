@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import '../styles/header.css';
+import logo from '../assets/logo.jpeg';
 
 const Header = ({ isDarkTheme, toggleTheme }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,7 +11,9 @@ const Header = ({ isDarkTheme, toggleTheme }) => {
     <header className="medicoed-header">
       <div className="medicoed-header-container">
         <div className="medicoed-logo">
-          <div className="medicoed-logo-icon">M</div>
+          <div className="medicoed-logo-icon">
+            <img src={logo} alt="MEDICOED Logo" className="medicoed-logo-img" />
+          </div>
           <span className="medicoed-logo-text">MEDICOED</span>
         </div>
 
