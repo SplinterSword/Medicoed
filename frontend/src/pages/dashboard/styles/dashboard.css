@@ -2,139 +2,116 @@
 
 .medicoed-dashboard {
   display: flex;
-  flex-direction: column;
-  height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  min-height: calc(100vh - 70px);
   background: var(--medicoed-bg-primary);
   color: var(--medicoed-text-primary);
-  position: relative;
-  overflow: hidden;
 }
 
 .medicoed-dashboard::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   background: radial-gradient(
     ellipse at 20% 50%,
     rgba(0, 212, 255, 0.03) 0%,
     transparent 50%
   );
   pointer-events: none;
-  z-index: -1;
 }
 
 /* ==================== SIDEBAR ==================== */
 
 .medicoed-sidebar {
-  width: 210px;
-  background: linear-gradient(180deg, var(--medicoed-bg-primary) 0%, rgba(0, 212, 255, 0.05) 100%);
-  padding: 20px;
-  color: var(--medicoed-text-secondary);
+  width: 240px;
+  flex-shrink: 0;
+  min-height: calc(100vh - 70px);
+
   display: flex;
   flex-direction: column;
-  align-items: center;
-  box-shadow: 2px 0 20px rgba(0, 212, 255, 0.1);
-  margin-top: 0px;
-  height: calc(100vh - 70px);
-  position: fixed;
-  left: 0;
-  top: 70px;
-  z-index: 10;
-  overflow-y: auto;
-  transition: width 0.3s ease;
+  align-items: stretch;
+
+  padding: 20px;
+
+  background: linear-gradient(
+    180deg,
+    var(--medicoed-bg-primary),
+    rgba(0, 212, 255, 0.05)
+  );
+
   border-right: 1px solid var(--medicoed-border);
+  z-index: 1;
 }
+
+/* ==================== SIDEBAR LIST ==================== */
 
 .medicoed-sidebar ul {
   list-style: none;
   padding: 0;
-  width: 100%;
-  margin-top: -10px;
+  margin: 0;
 }
 
 .medicoed-sidebar li {
-  margin: 20px 0;
-  width: 100%;
+  margin: 16px 0;
 }
 
+/* ==================== SIDEBAR LINKS ==================== */
+
 .medicoed-sidebar a {
-  color: var(--medicoed-text-secondary);
-  text-decoration: none;
-  font-size: 1rem;
+  position: relative;
   display: flex;
   align-items: center;
+
   padding: 12px 16px;
   border-radius: 12px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  font-size: 1rem;
   font-weight: 500;
-  position: relative;
-  overflow: hidden;
+  text-decoration: none;
+  color: var(--medicoed-text-secondary);
+
+  transition: all 0.25s ease;
 }
 
 .medicoed-sidebar a::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: var(--medicoed-gradient-primary);
-  transition: left 0.3s ease;
+  opacity: 0;
   z-index: -1;
+  transition: opacity 0.25s ease;
 }
 
 .medicoed-sidebar a:hover,
 .medicoed-sidebar a.active {
   color: var(--medicoed-text-primary);
-  transform: translateX(8px);
-  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
+  transform: translateX(6px);
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.25);
 }
 
 .medicoed-sidebar a:hover::before,
 .medicoed-sidebar a.active::before {
-  left: 0;
+  opacity: 1;
 }
 
-.medicoed-sidebar a .icon {
+.medicoed-sidebar .icon {
   margin-right: 12px;
   font-size: 1.2rem;
-  transition: transform 0.3s ease;
 }
 
-.medicoed-sidebar a:hover .icon {
-  transform: scale(1.1);
-}
-
-.medicoed-sidebar a .label {
+.medicoed-sidebar .label {
   flex-grow: 1;
-  text-align: left;
 }
 
 /* ==================== MAIN CONTENT ==================== */
 
 .medicoed-main-content {
   flex: 1;
-  margin-left: 250px;
   padding: 32px;
-  background: var(--medicoed-bg-primary);
-  color: var(--medicoed-text-primary);
-  overflow-y: auto;
-  position: relative;
-  z-index: 1;
-  margin-top: 0px;
-  padding-top: 0;
-  min-height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* change to center if you want vertical center */
 }
 
+
 .medicoed-main-content::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  right: 0;
   width: 400px;
   height: 400px;
   background: radial-gradient(
@@ -149,13 +126,12 @@
 /* ==================== WELCOME SECTION ==================== */
 
 .medicoed-welcome-section {
+  max-width: 900px;
   padding: 48px 32px;
   text-align: center;
   background: rgba(0, 212, 255, 0.02);
   border-radius: 20px;
-  margin-bottom: 32px;
   border: 1px solid var(--medicoed-border);
-  backdrop-filter: blur(10px);
 }
 
 .medicoed-welcome-section h1 {
@@ -168,6 +144,18 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+.medicoed-notes-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.medicoed-toggle-notes-button {
+  padding: 14px 22px;
+  border-radius: 24px;
+}
+
 
 .medicoed-welcome-section p {
   color: var(--medicoed-text-secondary);
@@ -275,34 +263,17 @@
 }
 
 @media (max-width: 768px) {
-  .medicoed-toggle-sidebar-button {
-    display: block;
+  .medicoed-dashboard {
+    flex-direction: column;
   }
 
   .medicoed-sidebar {
-    position: fixed;
-    left: 0;
-    top: 70px;
-    width: 280px;
-    height: calc(100vh - 70px);
-    z-index: 999;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
   }
 
   .medicoed-main-content {
-    margin-left: 0;
     padding: 20px;
-  }
-
-  .medicoed-toggle-notes-button.shifted {
-    right: 32px;
-  }
-
-  .medicoed-welcome-section h1 {
-    font-size: 2rem;
-  }
-
-  .medicoed-main-content::before {
-    width: 300px;
-    height: 300px;
   }
 }
