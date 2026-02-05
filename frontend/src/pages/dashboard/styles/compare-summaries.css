@@ -1,0 +1,226 @@
+/* CompareSummaries.css */
+
+.CompareSummaries-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.CompareSummaries-heading {
+  margin: 20px 0;
+  font-size: 2rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.CompareSummaries-heading span {
+  color: #ff416c;
+}
+
+.CompareSummaries-chat-container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 1200px;
+  height: 80vh;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  padding: 20px;
+}
+
+.CompareSummaries-chat {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #f9f9f9;
+}
+
+.CompareSummaries-message {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  transition: transform 0.2s;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.CompareSummaries-message.user {
+  justify-content: flex-end;
+  transform: translateX(20px);
+}
+
+.CompareSummaries-message.bot {
+  justify-content: flex-start;
+  transform: translateX(-20px);
+}
+
+.CompareSummaries-message-content {
+  max-width: 60%;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.CompareSummaries-message.user .CompareSummaries-message-content {
+  background-color: #ff416c;
+  color: #ffffff;
+  text-align: right;
+}
+
+.CompareSummaries-message.bot .CompareSummaries-message-content {
+  background-color: #e5e5e5;
+  color: #000000;
+  text-align: left;
+}
+
+.CompareSummaries-form-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center; /* Center items vertically */
+  padding: 20px;
+  background: #f7f7f7;
+  border-top: 1px solid #e0e0e0;
+}
+
+.CompareSummaries-form-section form {
+  display: flex;
+  flex-wrap: wrap; /* Allow form elements to wrap */
+  gap: 10px; /* Adjust spacing between form elements */
+}
+
+.CompareSummaries-input-group {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.CompareSummaries-select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #ffffff;
+  cursor: pointer;
+  transition: border-color 0.3s;
+  flex: 1;
+  margin-right: 20px;
+}
+
+.CompareSummaries-button {
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #ff416c, #ff416c);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.CompareSummaries-button:hover {
+  background: linear-gradient(90deg, #cf0080, #ff416c);
+}
+
+.CompareSummaries-save-button {
+  background-color: transparent; /* Green background */
+  color: #555; /* White text */
+  border: none; /* No border */
+  padding: 5px 10px; /* Padding */
+  text-align: center; /* Center text */
+  text-decoration: none; /* No underline */
+  display: inline-block; /* Display as block */
+  margin-top: 10px; /* Margin top */
+  cursor: pointer; /* Cursor on hover */
+  border-radius: 2px; /* Rounded corners */
+  margin-left: 10px;
+}
+
+.CompareSummaries-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  z-index: 1000; /* Ensure it's above other content */
+  width: 300px; /* Adjust width as needed */
+  border-radius: 20px;
+}
+
+.CompareSummaries-popup-content {
+  text-align: center;
+}
+
+.CompareSummaries-popup h2 {
+  font-size: 1.5rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.CompareSummaries-popup input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.CompareSummaries-add-button {
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+  color: #ff416c;
+  cursor: pointer;
+}
+
+/* New styles for mobile screens */
+@media (max-width: 768px) {
+
+  .CompareSummaries-container {
+    margin-top: -30px;
+  }
+
+  .CompareSummaries-chat-container {
+    margin-top: -10px;
+  }
+
+  .CompareSummaries-chat {
+    font-size: 1rem;
+    margin-left: -30px;
+  }
+
+  .CompareSummaries-heading {
+    font-size: 1.2rem;
+  }
+
+  .CompareSummaries-message-content {
+    min-width: 78%; /* Full width for message content */
+    font-size: 14px;
+  }
+
+  .CompareSummaries-form-section {
+    align-items: center; /* Center items horizontally */
+    margin-left: -30px;
+    flex-wrap: wrap;
+  }
+
+  .CompareSummaries-select,
+  .CompareSummaries-button {
+    flex: 1; /* Equal width for inputs */
+    margin-right: 10px; /* Space between inputs */
+  }
+
+  .CompareSummaries-button {
+    margin-bottom: 0; /* Remove bottom margin */
+  }
+}

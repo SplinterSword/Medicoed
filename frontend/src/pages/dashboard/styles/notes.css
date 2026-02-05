@@ -1,0 +1,161 @@
+/* Dark theme styles for Notes component */
+
+.wl-notes-page-container-dark {
+  position: fixed;
+  top: 0;
+  right: -500px;
+  width: 500px;
+  height: 100%;
+  background: linear-gradient(135deg, #000 0%, #270044 100%);
+  box-shadow: 0 0 20px rgba(102, 16, 242, 0.2);
+  transition: right 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto;
+  border-left: 2px solid rgba(102, 16, 242, 0.3);
+}
+
+.wl-notes-page-container-dark.show {
+  right: 0;
+}
+
+.wl-notes-page-title-dark {
+  font-size: 1.5rem;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(102, 16, 242, 0.2);
+  color: #ffffff;
+}
+
+.wl-notes-add-form-dark {
+  padding: 1rem;
+}
+
+.wl-notes-form-select-dark,
+.wl-notes-form-textarea-dark {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+  background-color: rgba(47, 15, 53, 0.8);
+  color: #ffffff;
+  border: 1px solid rgba(102, 16, 242, 0.3);
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.wl-notes-form-select-dark:focus,
+.wl-notes-form-textarea-dark:focus {
+  outline: none;
+  border-color: rgba(102, 16, 242, 0.6);
+  background-color: rgba(49, 15, 53, 0.95);
+  box-shadow: 0 0 10px rgba(102, 16, 242, 0.2);
+}
+
+.wl-notes-form-select-dark option {
+  background-color: #000;
+  color: #ffffff;
+}
+
+.wl-notes-btn-primary-dark {
+  background: linear-gradient(90deg, #7F55F7 0%, #C31DFA 100%);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.wl-notes-btn-primary-dark:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 16, 242, 0.4);
+}
+
+.wl-notes-btn-secondary-dark {
+  background-color: rgba(102, 16, 242, 0.2);
+  color: #9d4edd;
+  border: 1px solid rgba(102, 16, 242, 0.4);
+  padding: 0.5rem 1rem;
+  margin-right: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.wl-notes-btn-secondary-dark:hover {
+  background-color: rgba(102, 16, 242, 0.3);
+  border-color: rgba(102, 16, 242, 0.6);
+}
+
+.wl-notes-btn-danger-dark {
+  background-color: rgba(220, 53, 69, 0.2);
+  color: #ff6b6b;
+  border: 1px solid rgba(220, 53, 69, 0.4);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.wl-notes-btn-danger-dark:hover {
+  background-color: rgba(220, 53, 69, 0.3);
+  border-color: rgba(220, 53, 69, 0.6);
+}
+
+.wl-notes-message-dark {
+  padding: 1rem;
+  background: rgba(102, 16, 242, 0.1);
+  border: 1px solid rgba(102, 16, 242, 0.3);
+  border-radius: 6px;
+  margin-top: 1rem;
+  color: #9d4edd;
+}
+
+.wl-notes-table-dark {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.wl-notes-table-header-dark {
+  padding: 0.75rem;
+  background: rgba(102, 16, 242, 0.15);
+  color: #9d4edd;
+  text-align: left;
+  font-weight: bold;
+  border-bottom: 1px solid rgba(102, 16, 242, 0.3);
+}
+
+.wl-notes-table-dark td,
+.wl-notes-table-dark th {
+  padding: 0.75rem;
+  border-bottom: 1px solid rgba(102, 16, 242, 0.2);
+  color: #d0d0d0;
+}
+
+.wl-notes-table-dark tr:hover {
+  background-color: rgba(102, 16, 242, 0.1);
+}
+
+.wl-notes-label-dark {
+  margin-left: 0.5rem;
+  color: #ffffff;
+}
+
+.wl-notes-toggle-dark {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem;
+  border-bottom: 1px solid rgba(102, 16, 242, 0.2);
+  cursor: pointer;
+  background: rgba(102, 16, 242, 0.1);
+}
+
+@media (max-width: 768px) {
+  .wl-notes-page-container-dark {
+    width: 100%;
+    max-width: 300px;
+  }
+}
