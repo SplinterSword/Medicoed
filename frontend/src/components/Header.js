@@ -18,20 +18,20 @@ const Header = ({ isDarkTheme, toggleTheme }) => {
         </div>
 
         <nav className={`medicoed-nav ${isMenuOpen ? 'medicoed-nav-active' : ''}`}>
-          <a href="#home" className="medicoed-nav-link medicoed-nav-link-active">
+          <a href="/" className="medicoed-nav-link medicoed-nav-link-active">
             Home
           </a>
-          <a href="#dashboard" className="medicoed-nav-link">
+          <a href="/dashboard" className="medicoed-nav-link">
             Dashboard
           </a>
-          <a href="#cases" className="medicoed-nav-link">
+          <a href="/cases" className="medicoed-nav-link">
             Case Studies
           </a>
-          <a href="#community" className="medicoed-nav-link">
+          <a href="/community" className="medicoed-nav-link">
             Community
           </a>
-          <a href="#about" className="medicoed-nav-link">
-            About
+          <a href="/pricing" className="medicoed-nav-link">
+            Pricing
           </a>
         </nav>
 
