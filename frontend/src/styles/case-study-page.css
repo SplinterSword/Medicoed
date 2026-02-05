@@ -1,0 +1,246 @@
+/* CaseStudyPage Component - Premium Medical Theme */
+
+.case-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, rgba(10, 14, 39, 0.5) 0%, rgba(15, 21, 53, 0.3) 100%);
+  min-height: 100vh;
+}
+
+.case-page-heading {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 60px;
+  color: var(--medicoed-text-primary);
+  font-family: Tahoma, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  text-align: center;
+}
+
+.case-page-heading span {
+  background: var(--medicoed-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.case-page-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  width: 100%;
+  max-width: 1200px;
+  animation: medicoed-fade-in 0.6s ease-in-out;
+}
+
+.case-page-card {
+  background: linear-gradient(135deg, rgba(10, 14, 39, 0.8) 0%, rgba(15, 21, 53, 0.6) 100%);
+  border: 2px solid rgba(29, 209, 161, 0.2);
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(29, 209, 161, 0.1);
+  overflow: hidden;
+  transition: all var(--medicoed-transition-base);
+  text-align: center;
+  padding: 30px 20px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.case-page-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--medicoed-sea-green), transparent);
+  opacity: 0;
+  transition: opacity var(--medicoed-transition-base);
+}
+
+.case-page-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(29, 209, 161, 0.5);
+  box-shadow: 0 15px 40px rgba(29, 209, 161, 0.25);
+}
+
+.case-page-card:hover::before {
+  opacity: 1;
+}
+
+.case-page-card-icon-container {
+  background: linear-gradient(135deg, rgba(29, 209, 161, 0.1) 0%, rgba(0, 153, 255, 0.1) 100%);
+  padding: 20px;
+  border-radius: 12px;
+  color: var(--medicoed-sea-green);
+  border: 1px solid rgba(29, 209, 161, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  transition: all var(--medicoed-transition-base);
+}
+
+.case-page-card:hover .case-page-card-icon-container {
+  background: linear-gradient(135deg, rgba(29, 209, 161, 0.2) 0%, rgba(0, 153, 255, 0.2) 100%);
+  border-color: rgba(29, 209, 161, 0.4);
+  transform: scale(1.1);
+}
+
+.case-page-card-icon {
+  font-size: 2.5rem;
+  color: var(--medicoed-ocean-blue);
+  transition: color var(--medicoed-transition-base);
+}
+
+.case-page-card:hover .case-page-card-icon {
+  color: var(--medicoed-sea-green);
+}
+
+.case-page-card-content {
+  padding: 0;
+}
+
+.case-page-card-title {
+  font-size: 1.4rem;
+  margin: 15px 0 10px 0;
+  color: var(--medicoed-text-primary);
+  font-family: Tahoma, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.case-page-card-description {
+  font-size: 0.95rem;
+  color: var(--medicoed-text-secondary);
+  margin: 10px 0 20px 0;
+  line-height: 1.6;
+}
+
+.case-page-card-button {
+  background: var(--medicoed-gradient-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 11px 28px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all var(--medicoed-transition-base);
+  box-shadow: 0 4px 15px rgba(29, 209, 161, 0.3);
+  font-weight: 600;
+  font-family: Tahoma, sans-serif;
+  margin-top: 10px;
+}
+
+.case-page-card-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(29, 209, 161, 0.5);
+}
+
+.case-page-card-button:active {
+  transform: translateY(-1px);
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 1024px) {
+  .case-page-card-container {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .case-page {
+    padding: 40px 15px;
+  }
+
+  .case-page-heading {
+    margin-bottom: 40px;
+    font-size: 2rem;
+  }
+
+  .case-page-card-container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+  }
+
+  .case-page-card {
+    padding: 25px 15px;
+  }
+
+  .case-page-card-title {
+    font-size: 1.2rem;
+  }
+
+  .case-page-card-description {
+    font-size: 0.9rem;
+  }
+
+  .case-page-card-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .case-page {
+    padding: 30px 10px;
+  }
+
+  .case-page-heading {
+    font-size: 1.75rem;
+    margin-bottom: 30px;
+  }
+
+  .case-page-card-container {
+    grid-template-columns: 1fr;
+  }
+
+  .case-page-card {
+    padding: 20px;
+  }
+
+  .case-page-card-icon {
+    font-size: 2rem;
+  }
+
+  .case-page-card-title {
+    font-size: 1.1rem;
+  }
+
+  .case-page-card-description {
+    font-size: 0.85rem;
+  }
+}
+
+/* Not logged in state */
+.case-page > p {
+  font-size: 1.1rem;
+  color: var(--medicoed-text-secondary);
+  text-align: center;
+  padding: 40px;
+}
+
+/* Light Theme Adjustments */
+.medicoed-light-theme .case-page-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 247, 250, 0.9) 100%);
+  border-color: rgba(29, 209, 161, 0.15);
+  box-shadow: 0 8px 32px rgba(29, 209, 161, 0.08);
+}
+
+.medicoed-light-theme .case-page-card:hover {
+  border-color: rgba(29, 209, 161, 0.3);
+  box-shadow: 0 15px 40px rgba(29, 209, 161, 0.15);
+}
+
+.medicoed-light-theme .case-page-card-icon-container {
+  background: linear-gradient(135deg, rgba(29, 209, 161, 0.08) 0%, rgba(0, 153, 255, 0.08) 100%);
+  border-color: rgba(29, 209, 161, 0.15);
+}

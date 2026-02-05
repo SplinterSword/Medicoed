@@ -1,0 +1,25 @@
+{
+  "APP_VERSION" : "v0.2",
+  "APP" : {
+      "FLASK_APP" : "questions",
+      "FLASK_ENV" : "dev"
+  },
+  "OPENAI" : {
+        "API_KEY" : "",
+        "MODEL" : "",
+        "OPENAI_CHATGPT_PROMPT_KEY":"",
+        "ORG_CODE": ""
+    },
+    "MongoDB" : {
+        "TEST_URI" : "",
+        "PROD_URI": ""
+    },
+  "STRIPE": {
+      "API_KEY": "",
+      "endpoint_secret": "",
+      "PLANS":{
+          "p": "PREMIUM",
+          "q":"STANDARD"
+      }
+  }
+}

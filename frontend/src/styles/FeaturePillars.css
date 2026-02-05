@@ -1,0 +1,285 @@
+/* Feature Pillars Section */
+.medicoed-fp-section {
+  width: 100%;
+  padding: var(--medicoed-spacing-3xl) var(--medicoed-spacing-lg);
+  background: var(--medicoed-bg-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.medicoed-fp-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(0, 255, 200, 0.02) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(0, 150, 200, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+  animation: medicoed-fp-glow-shift 20s ease-in-out infinite;
+}
+
+@keyframes medicoed-fp-glow-shift {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.medicoed-fp-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.medicoed-fp-title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: var(--medicoed-text-primary);
+  text-align: center;
+  margin-bottom: var(--medicoed-spacing-3xl);
+  line-height: 1.3;
+}
+
+.medicoed-fp-title .medicoed-highlight {
+  background: var(--medicoed-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.medicoed-fp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: var(--medicoed-spacing-2xl);
+}
+
+.medicoed-fp-card {
+  position: relative;
+  border-radius: var(--medicoed-radius-2xl);
+  padding: var(--medicoed-spacing-2xl);
+  background: var(--medicoed-bg-secondary);
+  border: 1px solid var(--medicoed-border);
+  transition: all var(--medicoed-transition-base);
+  cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--medicoed-spacing-lg);
+}
+
+.medicoed-fp-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    135deg,
+    transparent 30%,
+    rgba(0, 255, 200, 0.1) 50%,
+    transparent 70%
+  );
+  animation: medicoed-fp-shine 3s infinite;
+  opacity: 0;
+  transition: opacity var(--medicoed-transition-base);
+}
+
+@keyframes medicoed-fp-shine {
+  0% {
+    transform: translate(-100%, -100%) rotate(45deg);
+  }
+  100% {
+    transform: translate(100%, 100%) rotate(45deg);
+  }
+}
+
+.medicoed-fp-card-hovered::before {
+  opacity: 1;
+}
+
+.medicoed-fp-card-hovered {
+  border-color: var(--fp-accent, var(--medicoed-sea-green));
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0, 255, 255, 0.1), 0 0 40px rgba(0, 128, 184, 0.05);
+}
+
+.medicoed-fp-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 30% 30%,
+    var(--fp-accent, var(--medicoed-sea-green)) 0%,
+    transparent 70%
+  );
+  opacity: 0.03;
+  border-radius: var(--medicoed-radius-2xl);
+  pointer-events: none;
+}
+
+.medicoed-fp-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--medicoed-spacing-lg);
+}
+
+.medicoed-fp-header {
+  display: flex;
+  align-items: center;
+  gap: var(--medicoed-spacing-md);
+}
+
+.medicoed-fp-icon-wrapper {
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  border-radius: var(--medicoed-radius-lg);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 200, 0.08) 0%,
+    rgba(0, 128, 184, 0.04) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 255, 200, 0.15);
+  animation: medicoed-fp-icon-pulse 3s ease-in-out infinite;
+  color: var(--fp-accent, var(--medicoed-sea-green));
+  font-size: 28px;
+}
+
+@keyframes medicoed-fp-icon-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 var(--fp-accent, var(--medicoed-sea-green)) 0.4;
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(0, 255, 200, 0);
+  }
+}
+
+.medicoed-fp-subtitle {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--medicoed-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.medicoed-fp-card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--medicoed-text-primary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.medicoed-fp-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--medicoed-spacing-md);
+  flex-grow: 1;
+}
+
+.medicoed-fp-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--medicoed-spacing-md);
+  font-size: 15px;
+  color: var(--medicoed-text-secondary);
+  line-height: 1.6;
+}
+
+.medicoed-fp-feature-icon {
+  color: var(--fp-accent, var(--medicoed-sea-green));
+  font-weight: 700;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.medicoed-fp-btn {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: var(--medicoed-spacing-md);
+}
+
+/* Dark theme */
+.medicoed-dark-theme .medicoed-fp-section {
+  background: #000000;
+}
+
+.medicoed-dark-theme .medicoed-fp-card {
+  background: #0B0B0B;
+  border-color: rgba(0, 255, 200, 0.08);
+}
+
+.medicoed-dark-theme .medicoed-fp-card-hovered {
+  background: #121212;
+}
+
+/* Light theme */
+.medicoed-light-theme .medicoed-fp-section {
+  background: linear-gradient(180deg, #ffffff 0%, #f4f6f8 100%);
+}
+
+.medicoed-light-theme .medicoed-fp-card {
+  background: #ffffff;
+  border-color: rgba(0, 255, 200, 0.12);
+  box-shadow: var(--medicoed-shadow-sm);
+}
+
+.medicoed-light-theme .medicoed-fp-card-hovered {
+  background: #ffffff;
+  box-shadow: 0 15px 40px rgba(0, 255, 200, 0.1), 0 0 30px rgba(0, 128, 184, 0.05);
+}
+
+.medicoed-light-theme .medicoed-fp-icon-wrapper {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 200, 0.06) 0%,
+    rgba(0, 128, 184, 0.03) 100%
+  );
+  border-color: rgba(0, 255, 200, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .medicoed-fp-section {
+    padding: var(--medicoed-spacing-2xl) var(--medicoed-spacing-md);
+  }
+
+  .medicoed-fp-title {
+    margin-bottom: var(--medicoed-spacing-2xl);
+  }
+
+  .medicoed-fp-grid {
+    gap: var(--medicoed-spacing-lg);
+  }
+
+  .medicoed-fp-card {
+    padding: var(--medicoed-spacing-lg);
+  }
+
+  .medicoed-fp-card-title {
+    font-size: 18px;
+  }
+
+  .medicoed-fp-feature-item {
+    font-size: 14px;
+  }
+}

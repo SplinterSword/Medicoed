@@ -1,0 +1,288 @@
+/* Dark theme styles for Flashcards component with Medical AI colors */
+
+.wl-FlashCard-container-dark {
+  font-family: Tahoma, sans-serif;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background: rgba(0, 26, 51, 0.8);
+  box-shadow: 0 4px 8px rgba(29, 209, 161, 0.15);
+  border: 2px solid rgba(29, 209, 161, 0.2);
+}
+
+.wl-FlashCard-title-dark {
+  margin: 20px 0;
+  font-size: 2rem;
+  color: #ffffff;
+  font-family: Tahoma, sans-serif;
+  font-weight: 600;
+}
+
+.wl-FlashCard-title-dark span {
+  background: linear-gradient(90deg, #1dd1a1 0%, #0099ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.wl-FlashCard-form-dark {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.wl-FlashCard-label-dark {
+  color: #d0d0d0;
+  font-weight: 500;
+}
+
+.wl-FlashCard-select-dark {
+  margin-right: 10px;
+  padding: 10px;
+  border: 2px solid #1dd1a1;
+  border-radius: 10px;
+  background-color: #000;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  max-width: 350px;
+  font-family: Tahoma, sans-serif;
+}
+
+.wl-FlashCard-select-dark:focus {
+  outline: none;
+  border-color: #0099ff;
+  box-shadow: 0 0 10px rgba(29, 209, 161, 0.5);
+}
+
+.wl-FlashCard-button-dark {
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #1dd1a1 0%, #0099ff 100%);
+  color: #000;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-family: Tahoma, sans-serif;
+}
+
+.wl-FlashCard-button-dark:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(29, 209, 161, 0.6);
+}
+
+.wl-FlashCard-select-dark:focus {
+  outline: none;
+  border-color: rgba(102, 16, 242, 0.6);
+  box-shadow: 0 0 10px rgba(102, 16, 242, 0.2);
+}
+
+.wl-FlashCard-select-dark option {
+  background-color: #000;
+  color: #ffffff;
+}
+
+.wl-FlashCard-button-dark {
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #7F55F7 0%, #C31DFA 100%);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.wl-FlashCard-button-dark:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 16, 242, 0.4);
+}
+
+.wl-FlashCard-button-dark:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.wl-FlashCard-item-container-dark {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.wl-FlashCard-results-dark {
+  margin-top: 30px;
+}
+
+.wl-FlashCard-item-dark {
+  perspective: 1000px;
+}
+
+.wl-FlashCard-inner-dark {
+  width: 300px;
+  padding: 0px;
+  height: 200px;
+  position: relative;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border: 2px solid rgba(29, 209, 161, 0.3);
+  border-radius: 10px;
+  background: rgba(0, 26, 51, 0.6);
+  box-shadow: 4px 4px 8px rgba(29, 209, 161, 0.1);
+  font-family: Tahoma, sans-serif;
+  font-weight: 500;
+}
+
+.wl-FlashCard-front-dark {
+  background: rgba(0, 26, 51, 0.8);
+  color: #d0d0d0;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  align-items: center;
+  font-size: 1.2rem;
+  border: 2px solid rgba(29, 209, 161, 0.3);
+}
+
+.wl-FlashCard-back-dark {
+  background: linear-gradient(90deg, #1dd1a1 0%, #0099ff 100%);
+  color: #000;
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+.wl-FlashCard-save-dark {
+  margin-top: 10px;
+  background: linear-gradient(90deg, #7F55F7 0%, #C31DFA 100%);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  width: 100%;
+}
+
+.wl-FlashCard-save-dark:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 16, 242, 0.4);
+}
+
+.wl-QuestionsGenerator-popup-dark {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.wl-QuestionsGenerator-popup-content-dark {
+  background: linear-gradient(135deg, #000 0%, #270044 100%);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(102, 16, 242, 0.3);
+  border: 1px solid rgba(102, 16, 242, 0.3);
+  max-width: 400px;
+  width: 90%;
+}
+
+.wl-QuestionsGenerator-popup-content-dark h2 {
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.wl-QuestionsGenerator-popup-content-dark input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid rgba(102, 16, 242, 0.3);
+  border-radius: 5px;
+  background-color: rgba(15, 21, 53, 0.8);
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.wl-QuestionsGenerator-popup-content-dark input:focus {
+  outline: none;
+  border-color: rgba(102, 16, 242, 0.6);
+  box-shadow: 0 0 10px rgba(102, 16, 242, 0.2);
+}
+
+.wl-QuestionsGenerator-popup-content-dark input::placeholder {
+  color: #999;
+}
+
+.wl-QuestionsGenerator-popup-content-dark button {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.wl-QuestionsGenerator-popup-content-dark button:first-of-type {
+  background: linear-gradient(90deg, #7F55F7 0%, #C31DFA 100%);
+  color: #fff;
+}
+
+.wl-QuestionsGenerator-popup-content-dark button:first-of-type:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 16, 242, 0.4);
+}
+
+.wl-QuestionsGenerator-popup-content-dark button:last-of-type {
+  background-color: rgba(102, 16, 242, 0.2);
+  color: #9d4edd;
+  border: 1px solid rgba(102, 16, 242, 0.4);
+}
+
+.wl-QuestionsGenerator-popup-content-dark button:last-of-type:hover {
+  background-color: rgba(102, 16, 242, 0.3);
+}
+
+@media (max-width: 768px) {
+  .wl-FlashCard-container-dark {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  .wl-FlashCard-title-dark {
+    font-size: 1.5rem;
+  }
+
+  .wl-FlashCard-form-dark {
+    flex-direction: column;
+  }
+
+  .wl-FlashCard-select-dark {
+    max-width: 100%;
+    margin-right: 0;
+  }
+
+  .wl-FlashCard-inner-dark {
+    width: 250px;
+    height: 180px;
+  }
+}

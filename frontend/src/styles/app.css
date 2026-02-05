@@ -1,0 +1,131 @@
+/* ==================== APP CONTAINER ==================== */
+
+.medicoed-app {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--medicoed-bg-primary);
+  color: var(--medicoed-text-primary);
+  transition: background-color var(--medicoed-transition-base),
+    color var(--medicoed-transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.medicoed-app::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    ellipse at 20% 50%,
+    rgba(32, 201, 151, 0.05) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+.medicoed-app::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 128, 184, 0.05) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ==================== THEME STYLES ==================== */
+
+.medicoed-dark-theme {
+  --medicoed-bg-primary: #000000;
+  --medicoed-bg-secondary: #000000;
+  --medicoed-bg-tertiary: #000000;
+  --medicoed-text-primary: #ffffff;
+  --medicoed-text-secondary: #b4b8d1;
+  --medicoed-text-tertiary: #8891b0;
+  --medicoed-border: #2a2f4a;
+  --medicoed-border-light: #3a3f5a;
+}
+
+.medicoed-light-theme {
+  --medicoed-bg-primary: #ffffff;
+  --medicoed-bg-secondary: #f5f7fa;
+  --medicoed-bg-tertiary: #eff2f7;
+  --medicoed-text-primary: #0a0e27;
+  --medicoed-text-secondary: #4a5577;
+  --medicoed-text-tertiary: #7a8aad;
+  --medicoed-border: #e0e5f0;
+  --medicoed-border-light: #d0d5e5;
+}
+
+/* ==================== SMOOTH SCROLLING ==================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ==================== MAIN CONTENT ==================== */
+
+main {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ==================== ANIMATIONS ==================== */
+
+@keyframes medicoed-app-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.medicoed-app {
+  animation: medicoed-app-fade-in 0.6s ease-in-out;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 1024px) {
+  .medicoed-app::after {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .medicoed-app::before {
+    background: radial-gradient(
+      ellipse at 30% 50%,
+      rgba(32, 201, 151, 0.03) 0%,
+      transparent 50%
+    );
+  }
+
+  .medicoed-app::after {
+    background: radial-gradient(
+      circle,
+      rgba(0, 128, 184, 0.03) 0%,
+      transparent 70%
+    );
+    width: 250px;
+    height: 250px;
+  }
+}
