@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { FaHeart, FaComment, FaShare } from 'react-icons/fa';
-import '../../../styles/CommunityPreview.css';
+import '../styles/CommunityPreview.css';
 
 export default function CommunityPreview({ isDarkTheme = false }) {
   const [likedPosts, setLikedPosts] = useState({});

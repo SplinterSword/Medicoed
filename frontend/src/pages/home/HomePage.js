@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import '../../styles/app.css';
+import React from 'react';
+import './styles/HomePage.css';
 import Hero from './components/Hero';
 import FeaturePillars from './components/FeaturePillars';
 import AIDashboardShowcase from './components/AIDashboardShowcase';

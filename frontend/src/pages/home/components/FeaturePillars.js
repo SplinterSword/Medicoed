@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { FaBrain, FaStethoscope, FaUsers, FaArrowRight } from 'react-icons/fa';
-import '../../../styles/FeaturePillars.css';
+import '../styles/FeaturePillars.css';
 
 export default function FeaturePillars({ isDarkTheme = false }) {
   const [hoveredCard, setHoveredCard] = useState(null);

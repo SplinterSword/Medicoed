@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaArrowRight, FaPlay } from 'react-icons/fa';
-import '../../../styles/FinalCTA.css';
+import '../styles/FinalCTA.css';
 
 export default function FinalCTA({ isDarkTheme = false }) {
   return (
