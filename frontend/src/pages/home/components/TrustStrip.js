@@ -1,6 +1,5 @@
-import React from 'react';
 import { FaCheckCircle, FaBrain, FaNetworkWired, FaUsers } from 'react-icons/fa';
-import '../styles/TrustStrip.css';
+import '../../../styles/TrustStrip.css';
 
 export default function TrustStrip({ isDarkTheme = false }) {
   const values = [

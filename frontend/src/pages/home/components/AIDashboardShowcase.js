@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { FaComments, FaQuestion, FaBook, FaBrain } from 'react-icons/fa';
-import '../styles/AIDashboardShowcase.css';
+import '../../../styles/AIDashboardShowcase.css';
 
 export default function AIDashboardShowcase({ isDarkTheme = false }) {
   const [activePanel, setActivePanel] = useState(0);

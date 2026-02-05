@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { FaHeart, FaComment, FaShare, FaFollow, FaHashtag, FaStar, FaFire } from 'react-icons/fa';
-import '../styles/CommunityPreview.css';
+import React, { useState } from 'react';
+import { FaHeart, FaComment, FaShare } from 'react-icons/fa';
+import '../../../styles/CommunityPreview.css';
 
 export default function CommunityPreview({ isDarkTheme = false }) {
   const [likedPosts, setLikedPosts] = useState({});

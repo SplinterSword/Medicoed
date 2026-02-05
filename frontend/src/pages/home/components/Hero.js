@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { FaBook, FaRobot, FaComments, FaMapSigns, FaLightbulb, FaTrophy, FaRocket } from 'react-icons/fa';
-import '../styles/hero.css';
+import '../../../styles/hero.css';
 
 const Hero = ({ isDarkTheme }) => {
   const [scrollProgress, setScrollProgress] = useState(0);

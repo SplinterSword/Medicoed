@@ -12,7 +12,7 @@ import {
   FaTrophy,
   FaBook
 } from 'react-icons/fa';
-import '../styles/CaseLabFlow.css';
+import '../../../styles/CaseLabFlow.css';
 
 export default function CaseLabFlow({ isDarkTheme = false }) {
   const [hoveredStep, setHoveredStep] = useState(null);
