@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from "react"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import "../styles/ai-chat.css"
+import { getApiUrl } from "../../../env-config.js"
 
 const AIChat = () => {
   const [userId, setUserId] = useState("")
@@ -151,7 +152,7 @@ const AIChat = () => {
         setUserId(storedUserId)
         setIsLoggedIn(true)
 
-        const userDetailsResponse = await fetch("/api/get-user-by-userid", {
+        const userDetailsResponse = await fetch(getApiUrl("/api/get-user-by-userid"), {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -175,7 +176,7 @@ const AIChat = () => {
             setIsPremiumPlan(JSON.parse(storedPlanStatus))
           }
 
-          const filenamesResponse = await fetch(`/api/get-filenames?email=${encodeURIComponent(parsed?.email)}`, {
+          const filenamesResponse = await fetch(getApiUrl(`/api/get-filenames?email=${encodeURIComponent(parsed?.email)}`), {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
@@ -309,7 +310,7 @@ const AIChat = () => {
     setMessages((prevMessages) => [...prevMessages, { type: "user", content: formData.get("prompt") }])
 
     try {
-      await handleStream("/api/chat_paper", formData)
+      await handleStream(getApiUrl("/api/chat_paper"), formData)
     } catch (error) {
       console.error("Error during handleSubmit:", error)
     }
@@ -336,7 +337,7 @@ const AIChat = () => {
     }
 
     try {
-      const response = await fetch("/api/save", {
+      const response = await fetch(getApiUrl("/api/save"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

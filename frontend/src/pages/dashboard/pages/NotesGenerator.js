@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import "../styles/notes-generator.css"
 import ReactMarkdown from "react-markdown"
+import { getApiUrl } from "../../../env-config.js"
 
 const NotesGenerator = ({ showNotes, setShowNotes }) => {
   const [filenames, setFilenames] = useState([])
@@ -146,7 +147,7 @@ const NotesGenerator = ({ showNotes, setShowNotes }) => {
 
     try {
       // 1) Fetch user by ID
-      const response = await fetch("/api/get-user-by-userid", {
+      const response = await fetch(getApiUrl("/api/get-user-by-userid"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -208,7 +209,7 @@ const NotesGenerator = ({ showNotes, setShowNotes }) => {
 
       // 2) Fetch filenames using email
       const filesRes = await fetch(
-        `/api/get-filenames?email=${encodeURIComponent(email)}`,
+        getApiUrl(`/api/get-filenames?email=${encodeURIComponent(email)}`),
         {
           method: "GET",
           headers: {
@@ -254,7 +255,7 @@ const NotesGenerator = ({ showNotes, setShowNotes }) => {
 
     try {
       const userId = localStorage.getItem("id")
-      const response = await fetch("/api/ai-generated-notes", {
+      const response = await fetch(getApiUrl("/api/ai-generated-notes"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -319,7 +320,7 @@ const NotesGenerator = ({ showNotes, setShowNotes }) => {
     }
 
     try {
-      const response = await fetch("/api/save", {
+      const response = await fetch(getApiUrl("/api/save"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

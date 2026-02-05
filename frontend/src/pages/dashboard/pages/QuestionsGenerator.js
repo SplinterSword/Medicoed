@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import "../styles/questions-generator.css"
+import { getApiUrl } from "../../../env-config.js"
 
 const QuestionsGenerator = () => {
   const [userEmail, setUserEmail] = useState("")
@@ -141,7 +142,7 @@ const QuestionsGenerator = () => {
 
     try {
       // Fetch user by ID
-      const response = await fetch("/api/get-user-by-userid", {
+      const response = await fetch(getApiUrl("/api/get-user-by-userid"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -209,7 +210,7 @@ const QuestionsGenerator = () => {
 
       // Fetch filenames using email
       const filenamesResponse = await fetch(
-        `/api/get-filenames?email=${encodeURIComponent(email)}`,
+        getApiUrl(`/api/get-filenames?email=${encodeURIComponent(email)}`),
         {
           method: "GET",
           headers: { "Content-Type": "application/json" },
@@ -240,7 +241,7 @@ const QuestionsGenerator = () => {
       setLoading(true)
       try {
         const userId = localStorage.getItem("id")
-        const response = await fetch("/api/get-quiz", {
+        const response = await fetch(getApiUrl("/api/get-quiz"), {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -295,7 +296,7 @@ const QuestionsGenerator = () => {
           email: userEmail,
         }
 
-        const response = await fetch("/api/save", {
+        const response = await fetch(getApiUrl("/api/save"), {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

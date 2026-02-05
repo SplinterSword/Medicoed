@@ -3,6 +3,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import '../styles/notes-editor.css';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
+import { getApiUrl } from '../../../env-config.js';
 
 const NotesEditor = () => {
   const [files, setFiles] = useState([]);
@@ -23,7 +24,7 @@ const NotesEditor = () => {
 
       try {
         // 1) Get user by id
-        const response = await fetch('/api/get-user-by-userid', {
+        const response = await fetch(getApiUrl('/api/get-user-by-userid'), {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -101,7 +102,7 @@ const NotesEditor = () => {
         return;
       }
 
-      const response = await fetch(`/api/fetch?email=${encodeURIComponent(email)}`);
+      const response = await fetch(getApiUrl(`/api/fetch?email=${encodeURIComponent(email)}`));
       if (!response.ok) {
         throw new Error('Failed to fetch files');
       }
@@ -120,7 +121,7 @@ const NotesEditor = () => {
   const handleDelete = async (title) => {
     try {
       const email = userEmail;
-      const response = await fetch(`/api/delete`, {
+      const response = await fetch(getApiUrl(`/api/delete`), {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -139,7 +140,7 @@ const NotesEditor = () => {
   const handleSave = async () => {
     try {
       const email = userEmail;
-      const response = await fetch(`/api/update`, {
+      const response = await fetch(getApiUrl(`/api/update`), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

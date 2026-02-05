@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import "../styles/upload-dashboard.css"
+import { getApiUrl } from "../../../env-config.js"
 
 function UploadDashboard() {
   const [filenames, setFilenames] = useState([])
@@ -12,7 +13,7 @@ function UploadDashboard() {
         const storedCredentials = localStorage.getItem("rx_chatbot_credentials")
         if (!storedCredentials) return
         const { email } = JSON.parse(storedCredentials)
-        const filenamesResponse = await fetch(`/api/dashboard?email=${email}`, {
+        const filenamesResponse = await fetch(getApiUrl(`/api/dashboard?email=${email}`), {
           method: "GET",
           credentials: "include",
         })
@@ -29,7 +30,7 @@ function UploadDashboard() {
 
   const handleFileDelete = (filename) => {
     console.log("Deleting file:", filename)
-    fetch(`/api/delete_file/${filename}`, {
+    fetch(getApiUrl(`/api/delete_file/${filename}`), {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

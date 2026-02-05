@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../styles/compare-summaries.css';
 import remarkGfm from 'remark-gfm';
 import ReactMarkdown from 'react-markdown';
+import { getApiUrl } from '../../../env-config.js';
 
 const CompareSummaries = () => {
   const [filenames, setFilenames] = useState([]);
@@ -148,7 +149,7 @@ const CompareSummaries = () => {
           setIsPremiumPlan(JSON.parse(storedPlanStatus));
         }
 
-        const loginResponse = await fetch('/api/login', {
+        const loginResponse = await fetch(getApiUrl('/api/login'), {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -163,7 +164,7 @@ const CompareSummaries = () => {
           setUserEmail(email);
 
           // Fetch filenames if login is successful
-          const filenamesResponse = await fetch(`/api/get-filenames?email=${encodeURIComponent(email)}`, {
+          const filenamesResponse = await fetch(getApiUrl(`/api/get-filenames?email=${encodeURIComponent(email)}`), {
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',
@@ -190,7 +191,7 @@ const CompareSummaries = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch('/api/chat-all', {
+      const response = await fetch(getApiUrl('/api/chat-all'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -264,7 +265,7 @@ const CompareSummaries = () => {
     };
 
     try {
-      const response = await fetch('/api/save', {
+      const response = await fetch(getApiUrl('/api/save'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

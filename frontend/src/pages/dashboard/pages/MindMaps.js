@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch"
 import { BsZoomIn, BsZoomOut } from "react-icons/bs"
 import "../styles/mind-maps.css"
+import { getApiUrl } from "../../../env-config.js"
 
 const MindMapGenerator = ({ onMindMapGenerated }) => {
   const [userEmail, setUserEmail] = useState("")
@@ -145,7 +146,7 @@ useEffect(() => {
 
     try {
       // 1) Fetch user by ID
-      const response = await fetch("/api/get-user-by-userid", {
+      const response = await fetch(getApiUrl("/api/get-user-by-userid"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -206,7 +207,7 @@ useEffect(() => {
 
       // 2) Fetch filenames using email
       const filesRes = await fetch(
-        `/api/get-filenames?email=${encodeURIComponent(email)}`,
+        getApiUrl(`/api/get-filenames?email=${encodeURIComponent(email)}`),
         {
           method: "GET",
           headers: {
@@ -235,7 +236,7 @@ useEffect(() => {
       setLoading(true)
       try {
         const userId = localStorage.getItem("id")
-        const response = await fetch("/api/generate-mind-map", {
+        const response = await fetch(getApiUrl("/api/generate-mind-map"), {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

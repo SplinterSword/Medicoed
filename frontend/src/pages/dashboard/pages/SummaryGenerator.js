@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import "../styles/summary-generator.css"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
+import { getApiUrl } from "../../../env-config.js"
 
 const SummaryGenerator = () => {
   const [filenames, setFilenames] = useState([])
@@ -150,7 +151,7 @@ const SummaryGenerator = () => {
           setIsPremiumPlan(JSON.parse(storedPlanStatus))
         }
 
-        const loginResponse = await fetch("/api/login", {
+        const loginResponse = await fetch(getApiUrl("/api/login"), {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -165,7 +166,7 @@ const SummaryGenerator = () => {
           setUserEmail(email)
 
           // Fetch filenames if login is successful
-          const filenamesResponse = await fetch(`/api/get-filenames?email=${encodeURIComponent(email)}`, {
+          const filenamesResponse = await fetch(getApiUrl(`/api/get-filenames?email=${encodeURIComponent(email)}`), {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
@@ -195,7 +196,7 @@ const SummaryGenerator = () => {
     setChatMessages([])
 
     try {
-      const response = await fetch("/api/individual-summary", {
+      const response = await fetch(getApiUrl("/api/individual-summary"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -270,7 +271,7 @@ const SummaryGenerator = () => {
     }
 
     try {
-      const response = await fetch("/api/save", {
+      const response = await fetch(getApiUrl("/api/save"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
