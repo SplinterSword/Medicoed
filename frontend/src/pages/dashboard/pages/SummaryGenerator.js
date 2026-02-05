@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import "./SummaryGenerator.css"
+import "../styles/summary-generator.css"
 import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 

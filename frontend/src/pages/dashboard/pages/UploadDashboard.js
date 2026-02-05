@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import "./UploadDashboard.css"
+import "../styles/upload-dashboard.css"
 
 function UploadDashboard() {
   const [filenames, setFilenames] = useState([])

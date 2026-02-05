@@ -3,18 +3,17 @@
 import { useState, useEffect } from "react"
 import { Link, Route, Routes, useLocation } from "react-router-dom"
 import { FiUpload, FiMessageCircle, FiClipboard, FiLayers, FiGitMerge, FiMenu, FiBook } from "react-icons/fi"
-import "../styles/dashboard.css"
+import "./styles/dashboard.css"
 import UploadPapers from "./pages/UploadPapers"
-import SummaryGenerator from "./SummaryGenerator"
-import Header from "./Header"
-import ComparisonTool from "./CompareSummaries"
+import SummaryGenerator from "./pages/SummaryGenerator"
+import ComparisonTool from "./pages/CompareSummaries"
 import AIChat from "./pages/AIChat"
 import QuestionsGenerator from "./pages/QuestionsGenerator"
 import MindMaps from "./pages/MindMaps"
-import ResearchLibrary from "./ResearchLibrary"
-import CompareAndChat from "./CompareAndChat"
-import UploadDashboard from "./UploadDashboard"
-import Notes from "./NotesGenerator"
+import ResearchLibrary from "./pages/ResearchLibrary"
+import CompareAndChat from "./pages/CompareAndChat"
+import UploadDashboard from "./pages/UploadDashboard"
+import Notes from "./pages/NotesGenerator"
 import Flashcards from "./pages/FlashCards"
 
 function Dashboard({ handleLogout }) {
@@ -130,8 +129,6 @@ function Dashboard({ handleLogout }) {
 
   return (
     <div className="wl-dashboard-dark">
-      <Header />
-
       {isMobile && (
         <button className="wl-toggle-sidebar-button-dark" onClick={toggleSidebar}>
           <FiMenu />

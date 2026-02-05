@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './CompareSummaries.css'; // Ensure to create this CSS file
+import '../styles/compare-summaries.css';
 import remarkGfm from 'remark-gfm';
 import ReactMarkdown from 'react-markdown';
 

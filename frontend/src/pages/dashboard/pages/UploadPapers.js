@@ -5,7 +5,7 @@ import "../styles/upload-papers.css"
 import { AiOutlineDelete } from "react-icons/ai"
 import { FiUpload } from "react-icons/fi"
 import { Link } from "react-router-dom"
-import noDeleteFiles from "./noDeleteFiles.json"
+import noDeleteFiles from "../noDeleteFiles.json"
 
 const UploadPapers = () => {
   const [attachedFiles, setAttachedFiles] = useState([])

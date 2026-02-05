@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import "./Notes.css"
+import "../styles/notes.css"
 
 const NotesPage = ({ showNotes, setShowNotes }) => {
   const [userEmail, setUserEmail] = useState("")

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import './NotesEditor.css';
+import '../styles/notes-editor.css';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 
 const NotesEditor = () => {
