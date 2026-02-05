@@ -355,17 +355,17 @@ const NotesGenerator = ({ showNotes, setShowNotes }) => {
   }
 
   return (
-    <div className={`wl-NotesGenerator-container-dark ${showNotes ? "show" : ""}`}>
-      <h1 className="wl-NotesGenerator-heading-dark">
+    <div className={`medicoed-notes-container ${showNotes ? "show" : ""}`}>
+      <h1 className="medicoed-notes-heading">
         Generate <span>Notes</span>
       </h1>
       <p>Prompt out the content in the text area and generate notes</p>
       {isLoggedIn && isSubscribed ? (
-        <div className="wl-NotesGenerator-chat-container-dark">
-          <div className="wl-NotesGenerator-chat-dark">
+        <div className="medicoed-notes-chat-container">
+          <div className="medicoed-notes-chat">
             {chatMessages.map((message, index) => (
-              <div key={index} className={`wl-NotesGenerator-message-dark ${message.type}`}>
-                <div className="wl-NotesGenerator-message-content-dark">
+              <div key={index} className={`medicoed-notes-message ${message.type}`}>
+                <div className="medicoed-notes-message-content">
                   {message.type === "user" ? (
                     <p>{message.content}</p>
                   ) : (
@@ -374,7 +374,7 @@ const NotesGenerator = ({ showNotes, setShowNotes }) => {
                   {message.type === "bot" && (
                     <div>
                       <button
-                        className="wl-NotesGenerator-save-button-dark"
+                        className="medicoed-notes-save-button"
                         onClick={() => handleCopy(message.content)}
                       >
                         Copy
@@ -388,13 +388,13 @@ const NotesGenerator = ({ showNotes, setShowNotes }) => {
               </div>
             ))}
           </div>
-          <div className="wl-NotesGenerator-form-section-dark">
+          <div className="medicoed-notes-form-section">
             <form id="chat-individual-notes-form" onSubmit={handleFormSubmit}>
-              <label style={{ color: "#e0e0e0" }}>Select a file (optional)</label>
+              <label style={{ color: "var(--medicoed-text-secondary)" }}>Select a file (optional)</label>
               <select
                 id="filename"
                 name="filename"
-                className="wl-NotesGenerator-select-dark"
+                className="medicoed-notes-select"
                 value={selectedFile}
                 onChange={handleInputChange}
               >
@@ -409,7 +409,7 @@ const NotesGenerator = ({ showNotes, setShowNotes }) => {
               <textarea
                 id="userMessage"
                 name="userMessage"
-                className="wl-NotesGenerator-textarea-dark"
+                className="medicoed-notes-textarea"
                 value={userMessage}
                 onChange={(e) => setUserMessage(e.target.value)}
                 placeholder="Paste your content here..."
@@ -418,7 +418,7 @@ const NotesGenerator = ({ showNotes, setShowNotes }) => {
               <select
                 id="language"
                 name="language"
-                className="wl-NotesGenerator-select-dark"
+                className="medicoed-notes-select"
                 value={selectedLanguage}
                 onChange={handleLanguageChange}
               >
@@ -428,7 +428,7 @@ const NotesGenerator = ({ showNotes, setShowNotes }) => {
                   </option>
                 ))}
               </select>
-              <button type="submit" className="wl-NotesGenerator-button-dark" disabled={isLoading}>
+              <button type="submit" className="medicoed-notes-button" disabled={isLoading}>
                 {isLoading ? "Loading..." : "Generate Notes"}
               </button>
             </form>
@@ -438,8 +438,8 @@ const NotesGenerator = ({ showNotes, setShowNotes }) => {
         <p>Please login and subscribe to generate notes.</p>
       )}
       {showPopup && (
-        <div className="wl-NotesGenerator-popup-dark">
-          <div className="wl-NotesGenerator-popup-content-dark">
+        <div className="medicoed-notes-popup-overlay">
+          <div className="medicoed-notes-popup">
             <h2>Save Message</h2>
             <input
               type="text"

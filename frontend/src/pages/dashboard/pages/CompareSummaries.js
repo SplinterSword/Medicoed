@@ -295,28 +295,28 @@ const CompareSummaries = () => {
   };
 
   return (
-    <div className="CompareSummaries-container">
-      <h1 className="CompareSummaries-heading">Compare <span>Summaries</span></h1>
+    <div className="medicoed-compare-summaries-container">
+      <h1 className="medicoed-compare-summaries-heading">Compare <span>Summaries</span></h1>
       {isLoggedIn && isSubscribed ? (
-        <div className="CompareSummaries-chat-container">
-          <div className="CompareSummaries-chat">
+        <div className="medicoed-compare-summaries-chat-container">
+          <div className="medicoed-compare-summaries-chat">
             {chatMessages.map((message, index) => (
-              <div key={index} className={`CompareSummaries-message ${message.type}`}>
-                <div className="CompareSummaries-message-content">
+              <div key={index} className={`medicoed-compare-summaries-message ${message.type}`}>
+                <div className="medicoed-compare-summaries-message-content">
                   {message.type === 'user' ? (
                     <p>{message.content}</p>
                   ) : (
                     <ReactMarkdown  remarkPlugins={[remarkGfm]}>{message.content}</ReactMarkdown>
                   )}
-                  <button className="SummaryGenerator-save-button" onClick={() => handleCopy(message.content)}>Copy</button>
-                  <button className="SummaryGenerator-save-button" onClick={handleShowSavePopup}>Save</button>
+                  <button className="medicoed-compare-summaries-secondary-button" onClick={() => handleCopy(message.content)}>Copy</button>
+                  <button className="medicoed-compare-summaries-secondary-button" onClick={handleShowSavePopup}>Save</button>
                 </div>
               </div>
             ))}
           </div>
           {showSavePopup && (
-            <div className="CompareSummaries-popup">
-              <div className="CompareSummaries-popup-content">
+            <div className="medicoed-compare-summaries-popup-overlay">
+              <div className="medicoed-compare-summaries-popup">
                 <h2>Save Comparison</h2>
                 <input
                   type="text"
@@ -330,13 +330,13 @@ const CompareSummaries = () => {
                   value={summaryTags}
                   onChange={(e) => setSummaryTags(e.target.value)}
                 />
-                <button className="CompareSummaries-button" onClick={handleSaveComparison}>
+                <button className="medicoed-compare-summaries-button" onClick={handleSaveComparison}>
                   Save
                 </button>
               </div>
             </div>
           )}
-          <div className="CompareSummaries-form-section">
+          <div className="medicoed-compare-summaries-form-section">
             <form id="chat-individual-summ-form" onSubmit={handleFormSubmit} style={{ display: 'flex', alignItems: 'center' }}>
             <label>Select Documents</label>
               {selectedFiles.map((file) => (
@@ -344,7 +344,7 @@ const CompareSummaries = () => {
                   key={file.id}
                   value={file.value}
                   onChange={(e) => handleFileChange(e, file.id)}
-                  className="SummaryGenerator-select"
+                  className="medicoed-compare-summaries-select"
                 >
                   <option value="">Select File {file.id}</option>
                   {filenames.map((filename, index) => (
@@ -356,7 +356,7 @@ const CompareSummaries = () => {
               <select
                 value={selectedLanguage}
                 onChange={handleLanguageChange}
-                className="CompareSummaries-select"
+                className="medicoed-compare-summaries-select"
                 required
               >
                 {languages.map((language) => (
@@ -365,10 +365,10 @@ const CompareSummaries = () => {
                   </option>
                 ))}
               </select>
-              <button type="submit" className="CompareSummaries-button" disabled={isLoading}>
+              <button type="submit" className="medicoed-compare-summaries-button" disabled={isLoading}>
                 {isLoading ? 'Loading...' : 'Compare Summaries'}
               </button>
-              <button type="button" onClick={addFileSelection} className="CompareSummaries-add-button">
+              <button type="button" onClick={addFileSelection} className="medicoed-compare-summaries-add-button">
                 Add File
               </button>
             </form>

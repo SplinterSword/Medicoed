@@ -302,15 +302,15 @@ useEffect(() => {
   }
 
   return (
-    <div className="wl-FlashCard-container-dark">
-      <h1 className="wl-FlashCard-title-dark">
+    <div className="medicoed-flashcards-container">
+      <h1 className="medicoed-flashcards-title">
         Flashcard <span>Generator</span>
       </h1>
       {isLoggedIn && isSubscribed ? (
-        <div className="wl-FlashCard-form-dark">
-          <label className="wl-FlashCard-label-dark">Select Document</label>
+        <div className="medicoed-flashcards-form">
+          <label className="medicoed-flashcards-label">Select Document</label>
           <select
-            className="wl-FlashCard-select-dark"
+            className="medicoed-flashcards-select"
             value={selectedFile}
             onChange={(e) => setSelectedFile(e.target.value)}
           >
@@ -322,7 +322,7 @@ useEffect(() => {
             ))}
           </select>
 
-          <label className="wl-FlashCard-label-dark">Select Language</label>
+          <label className="medicoed-flashcards-label">Select Language</label>
           <select className="wl-FlashCard-select-dark" value={selectedLanguage} onChange={handleLanguageChange}>
             {languages.map(({ code, name }) => (
               <option key={code} value={code}>
@@ -331,25 +331,25 @@ useEffect(() => {
             ))}
           </select>
 
-          <button className="wl-FlashCard-button-dark" onClick={generateFlashcards} disabled={loading}>
+          <button className="medicoed-flashcards-button" onClick={generateFlashcards} disabled={loading}>
             {loading ? "Generating Flashcards..." : "Generate Flashcards"}
           </button>
 
           {Object.keys(flashcards).length > 0 && (
-            <div className="wl-FlashCard-results-dark">
-              <div className="wl-FlashCard-item-container-dark">
+            <div className="medicoed-flashcards-results">
+              <div className="medicoed-flashcards-item-container">
                 {Object.entries(flashcards).map(([key, flashcard], index) => (
-                  <div key={index} className="wl-FlashCard-item-dark">
-                    <div className="wl-FlashCard-inner-dark">
-                      <div className="wl-FlashCard-front-dark">
+                  <div key={index} className="medicoed-flashcards-item">
+                    <div className="medicoed-flashcards-inner">
+                      <div className="medicoed-flashcards-front">
                         <p>{flashcard.Question}</p>
                       </div>
-                      <div className="wl-FlashCard-back-dark">
+                      <div className="medicoed-flashcards-back">
                         <p>{flashcard.Answer}</p>
                       </div>
                     </div>
                     <button
-                      className="wl-FlashCard-save-dark"
+                      className="medicoed-flashcards-save"
                       onClick={() => handleSaveFlashcard(JSON.stringify(flashcard), index)}
                     >
                       Save
@@ -364,8 +364,8 @@ useEffect(() => {
         <div>Please login and subscribe to generate Flashcards.</div>
       )}
       {showPopup && (
-        <div className="wl-QuestionsGenerator-popup-dark">
-          <div className="wl-QuestionsGenerator-popup-content-dark">
+        <div className="medicoed-flashcards-popup-overlay">
+          <div className="medicoed-flashcards-popup">
             <h2>Enter Title and Tags</h2>
             <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
             <input

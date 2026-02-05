@@ -319,35 +319,35 @@ const QuestionsGenerator = () => {
   }
 
   return (
-    <div className="wl-QuestionsGenerator-container-dark">
-      <h1 className="wl-QuestionsGenerator-title-dark">
+    <div className="medicoed-questions-container">
+      <h1 className="medicoed-questions-title">
         Quiz <span>Generator</span>
       </h1>
       {isLoggedIn && isSubscribed ? (
-        <div className="wl-QuestionsGenerator-form-dark">
-          <div className="wl-QuestionsGenerator-input-dark">
-            <label htmlFor="numberOfQuestions">Number of Questions:</label>
+        <div className="medicoed-questions-form">
+          <div className="medicoed-questions-input">
+            <label htmlFor="numberOfQuestions" style={{ color: "var(--medicoed-text-secondary)" }}>Number of Questions:</label>
             <input
               type="number"
               id="numberOfQuestions"
               value={numberOfQuestions}
               onChange={(e) => setNumberOfQuestions(e.target.value)}
               style={{
-                padding: "10px",
-                borderRadius: "10px",
-                border: "1px solid #6610f2",
-                marginRight: "10px",
-                backgroundColor: "#1a1f4d",
-                color: "#ffffff",
+                padding: "12px",
+                borderRadius: "12px",
+                border: "1px solid var(--medicoed-border)",
+                marginRight: "16px",
+                backgroundColor: "var(--medicoed-bg-tertiary)",
+                color: "var(--medicoed-text-primary)",
               }}
               min="1"
             />
           </div>
-          <label style={{ marginRight: "10px", color: "#e0e0e0" }}>Select Document</label>
+          <label style={{ marginRight: "16px", color: "var(--medicoed-text-secondary)" }}>Select Document</label>
           <select
             id="filename"
             name="filename"
-            className="wl-QuestionsGenerator-select-dark"
+            className="medicoed-questions-select"
             value={selectedFile}
             onChange={(e) => setSelectedFile(e.target.value)}
           >
@@ -358,11 +358,11 @@ const QuestionsGenerator = () => {
               </option>
             ))}
           </select>
-          <label style={{ color: "#e0e0e0" }}>Select Language</label>
+          <label style={{ color: "var(--medicoed-text-secondary)" }}>Select Language</label>
           <select
             id="language"
             name="language"
-            className="wl-QuestionsGenerator-select-dark"
+            className="medicoed-questions-select"
             value={selectedLanguage}
             onChange={handleLanguageChange}
           >
@@ -373,10 +373,10 @@ const QuestionsGenerator = () => {
             ))}
           </select>
           <button
-            className="wl-QuestionsGenerator-button-dark"
+            className="medicoed-questions-button"
             onClick={generateQuiz}
             disabled={loading}
-            style={{ marginTop: "20px" }}
+            style={{ marginTop: "24px" }}
           >
             {loading ? "Generating Quiz..." : "Generate Quiz"}
           </button>
@@ -384,17 +384,17 @@ const QuestionsGenerator = () => {
       ) : (
         <p>Please login and subscribe to generate quiz.</p>
       )}
-      <div className="wl-QuestionsGenerator-quiz-dark">
+      <div className="medicoed-questions-quiz">
         {quiz.length > 0 &&
           quiz.map((item, index) => (
-            <div key={index} className="wl-QuestionsGenerator-quiz-item-dark">
-              <h3 className="wl-QuestionsGenerator-question-dark">{item.question}</h3>
-              <ul className="wl-QuestionsGenerator-options-dark">
+            <div key={index} className="medicoed-questions-quiz-item">
+              <h3 className="medicoed-questions-question">{item.question}</h3>
+              <ul className="medicoed-questions-options">
                 {item.options.map((option, idx) => (
                   <li
                     key={idx}
-                    className={`wl-QuestionsGenerator-option-dark ${
-                      selectedAnswers[index] ? (option === item.answer ? "wl-correct-dark" : "wl-incorrect-dark") : ""
+                    className={`medicoed-questions-option ${
+                      selectedAnswers[index] ? (option === item.answer ? "correct" : "incorrect") : ""
                     }`}
                     onClick={() => handleOptionClick(index, option)}
                   >
@@ -403,13 +403,13 @@ const QuestionsGenerator = () => {
                 ))}
               </ul>
               {selectedAnswers[index] && (
-                <div className="wl-QuestionsGenerator-answer-dark">
+                <div className="medicoed-questions-answer">
                   <strong>Correct Answer: {item.answer}</strong>
                   <br /> <br />
                   Explanation: {item.explanation}
                 </div>
               )}
-              <button className="wl-QuestionsGenerator-save-button-dark" onClick={() => handleSaveQuestion(index)}>
+              <button className="medicoed-questions-save-button" onClick={() => handleSaveQuestion(index)}>
                 Save Question
               </button>
             </div>
@@ -417,8 +417,8 @@ const QuestionsGenerator = () => {
       </div>
 
       {showPopup && (
-        <div className="wl-QuestionsGenerator-popup-dark">
-          <div className="wl-QuestionsGenerator-popup-content-dark">
+        <div className="medicoed-questions-popup-overlay">
+          <div className="medicoed-questions-popup">
             <h2>Enter Title and Tags</h2>
             <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
             <input

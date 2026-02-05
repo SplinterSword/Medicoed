@@ -297,22 +297,22 @@ const SummaryGenerator = () => {
   }
 
   return (
-    <div className="SummaryGenerator-container">
-      <h1 className="SummaryGenerator-heading">
+    <div className="medicoed-summary-container">
+      <h1 className="medicoed-summary-heading">
         Generate <span>Summary</span>
       </h1>
       {isLoggedIn && isSubscribed ? (
-        <div className="SummaryGenerator-chat-container">
-          <div className="SummaryGenerator-chat">
+        <div className="medicoed-summary-chat-container">
+          <div className="medicoed-summary-chat">
             {chatMessages.map((message, index) => (
-              <div key={index} className={`SummaryGenerator-message ${message.type}`}>
-                <div className="SummaryGenerator-message-content">
+              <div key={index} className={`medicoed-summary-message ${message.type}`}>
+                <div className="medicoed-summary-message-content">
                   {message.type === "user" ? (
                     <p>{message.content}</p>
                   ) : (
                     <ReactMarkdown remarkPlugins={[remarkGfm]}>{message.content}</ReactMarkdown>
                   )}
-                  <button className="SummaryGenerator-save-button" onClick={() => handleCopy(message.content)}>
+                  <button className="medicoed-summary-save-button" onClick={() => handleCopy(message.content)}>
                     Copy
                   </button>
                   <button className="SummaryGenerator-save-button" onClick={handleShowSavePopup}>
@@ -323,8 +323,8 @@ const SummaryGenerator = () => {
             ))}
           </div>
           {showSavePopup && (
-            <div className="SummaryGenerator-popup">
-              <div className="SummaryGenerator-popup-content">
+            <div className="medicoed-summary-popup-overlay">
+              <div className="medicoed-summary-popup">
                 <h2>Save Summary</h2>
                 <input
                   type="text"
@@ -338,16 +338,16 @@ const SummaryGenerator = () => {
                   value={summaryTags}
                   onChange={(e) => setSummaryTags(e.target.value)}
                 />
-                <button className="SummaryGenerator-button" onClick={handleSaveSummary}>
+                <button className="medicoed-summary-button" onClick={handleSaveSummary}>
                   Save
                 </button>
-                <button className="SummaryGenerator-button" style={{ marginLeft: "10px" }} onClick={closePopup}>
+                <button className="medicoed-summary-button" style={{ marginLeft: "16px" }} onClick={closePopup}>
                   Cancel
                 </button>
               </div>
             </div>
           )}
-          <div className="SummaryGenerator-form-section">
+          <div className="medicoed-summary-form-section">
             <form
               id="chat-individual-summ-form"
               onSubmit={handleFormSubmit}
@@ -357,7 +357,7 @@ const SummaryGenerator = () => {
               <select
                 id="filename"
                 name="filename"
-                className="SummaryGenerator-select"
+                className="medicoed-summary-select"
                 value={selectedFile}
                 onChange={handleInputChange}
               >
@@ -372,7 +372,7 @@ const SummaryGenerator = () => {
               <select
                 id="language"
                 name="language"
-                className="SummaryGenerator-select"
+                className="medicoed-summary-select"
                 value={selectedLanguage}
                 onChange={handleLanguageChange}
               >
@@ -382,7 +382,7 @@ const SummaryGenerator = () => {
                   </option>
                 ))}
               </select>
-              <button type="submit" className="SummaryGenerator-button" disabled={isLoading}>
+              <button type="submit" className="medicoed-summary-button" disabled={isLoading}>
                 {isLoading ? "Loading..." : "Generate Summary"}
               </button>
             </form>

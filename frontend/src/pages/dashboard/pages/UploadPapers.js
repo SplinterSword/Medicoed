@@ -425,15 +425,15 @@ const UploadPapers = () => {
   }
 
   return (
-    <div className="UploadPapers-container">
-      <h1 className="UploadPapers-heading">
-        Upload Your <span style={{ color: "#6f42c1" }}>Files</span>
+    <div className="medicoed-upload-container">
+      <h1 className="medicoed-upload-heading">
+        Upload Your <span style={{ color: "var(--medicoed-accent-cyan)" }}>Files</span>
       </h1>
-      <div className="UploadPapers-bigbox">
-        <form id="UploadPapers-upload-form" className="UploadPapers-form" onSubmit={handleSubmit}>
-          <div className="UploadPapers-upload-box">
+      <div className="medicoed-upload-bigbox">
+        <form id="UploadPapers-upload-form" className="medicoed-upload-form" onSubmit={handleSubmit}>
+          <div className="medicoed-upload-upload-box">
             <div
-              className="UploadPapers-drag-box"
+              className="medicoed-upload-drag-box"
               onDragOver={handleIndividualDragOver}
               onDragLeave={handleIndividualDragLeave}
               onDrop={handleIndividualDrop}
@@ -447,7 +447,7 @@ const UploadPapers = () => {
                 style={{ display: "none" }}
                 ref={individualFileInputRef}
               />
-              <label htmlFor="individual-file-upload" className="UploadPapers-uicon">
+              <label htmlFor="individual-file-upload" className="medicoed-upload-uicon">
                 <FiUpload />
                 <br />
                 <p>Click here or drag and drop files to select them</p>
@@ -455,19 +455,19 @@ const UploadPapers = () => {
               </label>
             </div>
             {loading && (
-              <div className="UploadPapers-loader">
-                <div className="UploadPapers-dot"></div>
-                <div className="UploadPapers-dot"></div>
-                <div className="UploadPapers-dot"></div>
+              <div className="medicoed-upload-loader">
+                <div className="medicoed-upload-dot"></div>
+                <div className="medicoed-upload-dot"></div>
+                <div className="medicoed-upload-dot"></div>
               </div>
             )}
           </div>
-          <div className="UploadPapers-uploads-container">
-            <div id="UploadPapers-upload-form" className="UploadPapers-upload-form">
+          <div className="medicoed-upload-uploads-container">
+            <div id="UploadPapers-upload-form" className="medicoed-upload-form">
               {attachedFiles.length > 0 && (
                 <>
-                  <h3 className="UploadPapers-hhh">Attached Files</h3>
-                  <ul className="UploadPapers-file-list">
+                  <h3 className="medicoed-upload-hhh">Attached Files</h3>
+                  <ul className="medicoed-upload-file-list">
                     {attachedFiles.map((file, index) => (
                       <li key={index}>
                         <span>{file}</span>
@@ -478,11 +478,11 @@ const UploadPapers = () => {
               )}
             </div>
           </div>
-          <input className="UploadPapers-upload-button" type="submit" value="Upload" style={{ marginTop: "20px" }} />
+          <input className="medicoed-upload-button" type="submit" value="Upload" style={{ marginTop: "20px" }} />
         </form>
 
         <div className="bulk-upload-text">
-          <p className="UploadPapers-bulk-p">
+          <p className="medicoed-upload-bulk-p">
             or{" "}
             <span className="clickable-text" onClick={() => setShowBulkUpload(!showBulkUpload)}>
               click to upload multiple files as a single combined file
@@ -491,10 +491,10 @@ const UploadPapers = () => {
           </p>
         </div>
         {showBulkUpload && (
-          <form id="UploadPapers-bulk-upload-form" className="UploadPapers-form" onSubmit={handleBulkUploadSubmit}>
-            <div className="UploadPapers-upload-box">
+          <form id="UploadPapers-bulk-upload-form" className="medicoed-upload-form" onSubmit={handleBulkUploadSubmit}>
+            <div className="medicoed-upload-upload-box">
               <div
-                className="UploadPapers-drag-box"
+                className="medicoed-upload-drag-box"
                 onDragOver={handleBulkDragOver}
                 onDragLeave={handleBulkDragLeave}
                 onDrop={handleBulkDrop}
@@ -508,7 +508,7 @@ const UploadPapers = () => {
                   style={{ display: "none" }}
                   ref={bulkFileInputRef}
                 />
-                <label htmlFor="bulk-file-upload" className="UploadPapers-uicon">
+                <label htmlFor="bulk-file-upload" className="medicoed-upload-uicon">
                   <FiUpload />
                   <br />
                   <p>Click here or drag and drop files to select them</p>
@@ -516,19 +516,19 @@ const UploadPapers = () => {
                 </label>
               </div>
               {loading && (
-                <div className="UploadPapers-loader">
-                  <div className="UploadPapers-dot"></div>
-                  <div className="UploadPapers-dot"></div>
-                  <div className="UploadPapers-dot"></div>
+                <div className="medicoed-upload-loader">
+                  <div className="medicoed-upload-dot"></div>
+                  <div className="medicoed-upload-dot"></div>
+                  <div className="medicoed-upload-dot"></div>
                 </div>
               )}
             </div>
-            <div className="UploadPapers-uploads-container">
-              <div id="UploadPapers-upload-form" className="UploadPapers-upload-form">
+            <div className="medicoed-upload-uploads-container">
+              <div id="UploadPapers-upload-form" className="medicoed-upload-form">
                 {bulkAttachedFiles.length > 0 && (
                   <>
-                    <h3 className="UploadPapers-hhh">Attached Files</h3>
-                    <ul className="UploadPapers-file-list">
+                    <h3 className="medicoed-upload-hhh">Attached Files</h3>
+                    <ul className="medicoed-upload-file-list">
                       {bulkAttachedFiles.map((file, index) => (
                         <li key={index}>
                           <span>{file}</span>
@@ -539,37 +539,37 @@ const UploadPapers = () => {
                 )}
               </div>
             </div>
-            <div className="UploadPapers-upload-box">
+            <div className="medicoed-upload-upload-box">
               <input
                 type="text"
                 placeholder="Enter bulk upload filename"
                 onChange={(e) => setBulkUploadFilename(e.target.value)}
                 required
-                className="UploadPapers-bulk-input" // Add this class for styling
+                className="medicoed-upload-bulk-input" // Add this class for styling
               />
-              <input className="UploadPapers-upload-button" type="submit" value="Bulk Upload" />
+              <input className="medicoed-upload-button" type="submit" value="Bulk Upload" />
             </div>
           </form>
         )}
 
-        {uploadSuccess && <div className="UploadPapers-alert UploadPapers-success">File uploaded successfully.</div>}
+        {uploadSuccess && <div className="medicoed-upload-alert medicoed-upload-success">File uploaded successfully.</div>}
 
-        {deleteSuccess && <div className="UploadPapers-alert UploadPapers-success">File deleted successfully.</div>}
+        {deleteSuccess && <div className="medicoed-upload-alert medicoed-upload-success">File deleted successfully.</div>}
 
         {isLoggedIn ? (
-          <div className="UploadPapers-uploads-container">
-            <div id="UploadPapers-upload-form" className="UploadPapers-upload-form">
+          <div className="medicoed-upload-uploads-container">
+            <div id="UploadPapers-upload-form" className="medicoed-upload-form">
               {uploadedFiles.length > 0 && (
                 <>
-                  <h3 className="UploadPapers-hhh">Uploaded Files</h3>
-                  <ul className="UploadPapers-file-list">
+                  <h3 className="medicoed-upload-hhh">Uploaded Files</h3>
+                  <ul className="medicoed-upload-file-list">
                     {uploadedFiles.map((file, index) => (
                       <li key={index}>
                         <span>{file}</span>
 
                         {canShowDelete(file) && (
                           <AiOutlineDelete
-                            className="UploadPapers-delete-icon"
+                            className="medicoed-upload-delete-icon"
                             onClick={() => handleFileDelete(file)}
                           />
                         )}
@@ -581,14 +581,14 @@ const UploadPapers = () => {
             </div>
           </div>
         ) : (
-          <div className="UploadPapers-not-logged-in">
+          <div className="medicoed-upload-not-logged-in">
             <p>You need to be logged in to view and upload files.</p>
           </div>
         )}
       </div>
 
-      <div className="UploadPapers-buttons-container">
-        <Link to="/dashboard/ai-chat" className="UploadPapers-button-link">
+      <div className="medicoed-upload-buttons-container">
+        <Link to="/dashboard/ai-chat" className="medicoed-upload-button-link">
           <button disabled={indexDisabled}>Chat with Document</button>
         </Link>
         <Link to="/dashboard/questions-generator" className="UploadPapers-button-link">

@@ -1,70 +1,94 @@
 /* UploadPapers Component - Premium Medical Theme with Bright Sea Green & Ocean Blue */
 
-.UploadPapers-container {
+/* ==================== UPLOAD PAPERS CONTAINER ==================== */
+
+.medicoed-upload-container {
   max-width: 900px;
   margin: 0 auto;
   padding: 40px 20px;
-  background: linear-gradient(135deg, rgba(10, 14, 39, 0.5) 0%, rgba(15, 21, 53, 0.3) 100%);
-  border-radius: 12px;
+  background: var(--medicoed-bg-secondary);
+  border-radius: 20px;
   color: var(--medicoed-text-secondary);
   min-height: 100vh;
+  backdrop-filter: blur(20px);
+  position: relative;
 }
 
-.UploadPapers-bigbox {
-  background: linear-gradient(135deg, rgba(10, 14, 39, 0.8) 0%, rgba(15, 21, 53, 0.6) 100%);
-  border: 2px solid rgba(29, 209, 161, 0.2);
+.medicoed-upload-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--medicoed-gradient-primary);
+  opacity: 0.5;
+}
+
+/* ==================== UPLOAD PAPERS BIG BOX ==================== */
+
+.medicoed-upload-bigbox {
+  background: var(--medicoed-bg-tertiary);
+  border: 2px solid var(--medicoed-border);
   padding: 40px;
   margin-bottom: 60px;
   border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(29, 209, 161, 0.1);
-  transition: all var(--medicoed-transition-base);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.UploadPapers-heading {
+/* ==================== UPLOAD PAPERS HEADING ==================== */
+
+.medicoed-upload-heading {
   font-size: 2.5rem;
   margin-bottom: 40px;
   text-align: center;
-  font-family: Tahoma, sans-serif;
   font-weight: 700;
   color: var(--medicoed-text-primary);
   letter-spacing: -0.5px;
 }
 
-.UploadPapers-heading span {
+.medicoed-upload-heading span {
   background: var(--medicoed-gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.UploadPapers-form {
+/* ==================== UPLOAD PAPERS FORM ==================== */
+
+.medicoed-upload-form {
   margin-bottom: 30px;
 }
 
-.UploadPapers-upload-box {
-  border: 2px dashed rgba(0, 153, 255, 0.3);
-  background: linear-gradient(135deg, rgba(29, 209, 161, 0.05) 0%, rgba(0, 153, 255, 0.05) 100%);
+/* ==================== UPLOAD PAPERS UPLOAD BOX ==================== */
+
+.medicoed-upload-upload-box {
+  border: 2px dashed var(--medicoed-accent-cyan);
+  background: rgba(0, 212, 255, 0.05);
   padding: 30px;
   text-align: center;
   border-radius: 12px;
   cursor: pointer;
-  transition: all var(--medicoed-transition-base);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.UploadPapers-upload-box:hover {
-  border-color: rgba(29, 209, 161, 0.5);
-  background: linear-gradient(135deg, rgba(29, 209, 161, 0.1) 0%, rgba(0, 153, 255, 0.1) 100%);
-  box-shadow: 0 0 30px rgba(29, 209, 161, 0.2);
+.medicoed-upload-upload-box:hover {
+  border-color: var(--medicoed-accent-cyan);
+  background: rgba(0, 212, 255, 0.1);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
 }
 
-.UploadPapers-upload-box p {
+.medicoed-upload-upload-box p {
   padding-left: 20px;
   padding-right: 20px;
-  color: var(--medicoed-text-tertiary);
+  color: var(--medicoed-text-secondary);
   font-size: 0.95rem;
 }
 
-.UploadPapers-uicon {
+/* ==================== UPLOAD PAPERS UPLOAD ICON ==================== */
+
+.medicoed-upload-uicon {
   margin-bottom: 10px;
   cursor: pointer;
   display: flex;
@@ -73,274 +97,297 @@
   justify-content: center;
   min-height: 180px;
   font-size: 2.5rem;
-  color: var(--medicoed-ocean-blue);
-  transition: all var(--medicoed-transition-base);
+  color: var(--medicoed-accent-cyan);
+  transition: all 0.3s ease;
 }
 
-.UploadPapers-uicon:hover {
-  color: var(--medicoed-sea-green);
+.medicoed-upload-uicon:hover {
+  color: var(--medicoed-accent-cyan);
   transform: scale(1.05);
 }
 
-.UploadPapers-uicon p {
+.medicoed-upload-uicon p {
   color: var(--medicoed-text-secondary);
   margin: 8px 0;
   font-size: 0.9rem;
 }
 
-.UploadPapers-uploads-container {
-  border-top: 1px solid rgba(29, 209, 161, 0.2);
+/* ==================== UPLOAD PAPERS UPLOADS CONTAINER ==================== */
+
+.medicoed-upload-uploads-container {
+  border-top: 1px solid var(--medicoed-border);
   justify-items: center;
   text-align: center;
   margin-top: 30px;
   padding-top: 30px;
 }
 
-.UploadPapers-uploads-container h3 {
+.medicoed-upload-uploads-container h3 {
   font-weight: 600;
-  background-color: var(--medicoed-bg-secondary);
+  background: var(--medicoed-bg-secondary);
   z-index: 10;
-  font-family: Tahoma, sans-serif;
   padding: 10px 20px;
   margin-left: auto;
   margin-right: auto;
   width: fit-content;
   margin-top: -20px;
-  color: var(--medicoed-sea-green);
-  border: 1px solid rgba(29, 209, 161, 0.3);
+  color: var(--medicoed-accent-cyan);
+  border: 1px solid var(--medicoed-accent-cyan);
   border-radius: 8px;
 }
 
-.UploadPapers-upload-form {
+/* ==================== UPLOAD PAPERS UPLOAD FORM ==================== */
+
+.medicoed-upload-upload-form {
   justify-items: center;
   text-align: center;
   justify-content: center;
 }
 
-.UploadPapers-upload-button {
+/* ==================== UPLOAD PAPERS BUTTON ==================== */
+
+.medicoed-upload-button {
   background: var(--medicoed-gradient-primary);
-  color: white;
+  color: var(--medicoed-text-primary);
   border: none;
   padding: 12px 30px;
   border-radius: 8px;
   cursor: pointer;
   font-size: 1rem;
   margin-bottom: 20px;
-  transition: all var(--medicoed-transition-base);
+  transition: all 0.3s ease;
   font-weight: 600;
-  box-shadow: 0 4px 15px rgba(29, 209, 161, 0.3);
-  font-family: Tahoma, sans-serif;
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
 }
 
-.UploadPapers-upload-button:hover {
+.medicoed-upload-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(29, 209, 161, 0.5);
+  box-shadow: 0 6px 25px rgba(0, 212, 255, 0.3);
 }
 
-.UploadPapers-upload-button:active {
+.medicoed-upload-button:active {
   transform: translateY(0);
 }
 
-.UploadPapers-loader {
+/* ==================== UPLOAD PAPERS LOADER ==================== */
+
+.medicoed-upload-loader {
   margin-top: 20px;
   display: flex;
   justify-content: center;
   gap: 10px;
 }
 
-.UploadPapers-dot {
+.medicoed-upload-dot {
   width: 12px;
   height: 12px;
-  background: var(--medicoed-sea-green);
+  background: var(--medicoed-accent-cyan);
   border-radius: 50%;
   animation: medicoed-bounce-light 1.4s infinite ease-in-out;
 }
 
-.UploadPapers-dot:nth-child(2) {
+.medicoed-upload-dot:nth-child(2) {
   animation-delay: 0.2s;
 }
 
-.UploadPapers-dot:nth-child(3) {
+.medicoed-upload-dot:nth-child(3) {
   animation-delay: 0.4s;
 }
 
-.UploadPapers-bulk-p {
+/* ==================== UPLOAD PAPERS BULK ==================== */
+
+.medicoed-upload-bulk-p {
   margin-bottom: 30px;
   color: var(--medicoed-text-secondary);
   font-size: 0.95rem;
   cursor: pointer;
 }
 
-.UploadPapers-bulk-p .clickable-text {
-  color: var(--medicoed-ocean-blue);
+.medicoed-upload-bulk-p .clickable-text {
+  color: var(--medicoed-accent-cyan);
   font-weight: 600;
   text-decoration: underline;
-  transition: color var(--medicoed-transition-fast);
+  transition: color 0.3s ease;
 }
 
-.UploadPapers-bulk-p .clickable-text:hover {
-  color: var(--medicoed-sea-green);
+.medicoed-upload-bulk-p .clickable-text:hover {
+  color: var(--medicoed-accent-cyan);
 }
 
-.UploadPapers-alert {
+/* ==================== UPLOAD PAPERS ALERT ==================== */
+
+.medicoed-upload-alert {
   padding: 15px 20px;
   margin-bottom: 20px;
   border-radius: 8px;
   font-size: 0.95rem;
   text-align: center;
-  border: 1px solid rgba(29, 209, 161, 0.3);
+  border: 1px solid var(--medicoed-border);
+  background: var(--medicoed-bg-tertiary);
 }
 
-.UploadPapers-success {
-  background: linear-gradient(135deg, rgba(29, 209, 161, 0.1) 0%, rgba(0, 153, 255, 0.1) 100%);
-  color: var(--medicoed-sea-green);
+/* ==================== UPLOAD PAPERS SUCCESS ==================== */
+
+.medicoed-upload-success {
+  background: var(--medicoed-gradient-primary);
+  color: var(--medicoed-text-primary);
   font-weight: 500;
 }
 
-.UploadPapers-file-list {
+/* ==================== UPLOAD PAPERS FILE LIST ==================== */
+
+.medicoed-upload-file-list {
   list-style-type: none;
   padding: 0;
   margin: 20px auto;
   max-width: 600px;
 }
 
-.UploadPapers-file-list li {
+.medicoed-upload-file-list li {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 12px 16px;
-  background: linear-gradient(135deg, rgba(29, 209, 161, 0.08) 0%, rgba(0, 153, 255, 0.08) 100%);
+  background: var(--medicoed-bg-tertiary);
   margin-bottom: 8px;
   border-radius: 8px;
   font-size: 0.95rem;
   color: var(--medicoed-text-primary);
-  border: 1px solid rgba(29, 209, 161, 0.2);
-  transition: all var(--medicoed-transition-fast);
+  border: 1px solid var(--medicoed-border);
+  transition: all 0.3s ease;
 }
 
-.UploadPapers-file-list li:hover {
-  border-color: rgba(29, 209, 161, 0.4);
-  box-shadow: 0 4px 12px rgba(29, 209, 161, 0.1);
+.medicoed-upload-file-list li:hover {
+  border-color: var(--medicoed-accent-cyan);
+  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.1);
 }
 
-.UploadPapers-delete-icon {
+/* ==================== UPLOAD PAPERS DELETE ICON ==================== */
+
+.medicoed-upload-delete-icon {
   color: var(--medicoed-error);
   cursor: pointer;
   font-size: 1.2rem;
-  transition: all var(--medicoed-transition-fast);
+  transition: all 0.3s ease;
 }
 
-.UploadPapers-delete-icon:hover {
+.medicoed-upload-delete-icon:hover {
   color: var(--medicoed-warning);
   transform: scale(1.2);
 }
 
-.UploadPapers-buttons-container {
+/* ==================== UPLOAD PAPERS BUTTONS CONTAINER ==================== */
+
+.medicoed-upload-buttons-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
+  gap: 16px;
   margin-top: 40px;
 }
 
-.UploadPapers-button-link {
+.medicoed-upload-button-link {
   text-decoration: none;
 }
 
-.UploadPapers-button-link button {
+.medicoed-upload-button-link button {
   background: var(--medicoed-gradient-primary);
-  color: white;
+  color: var(--medicoed-text-primary);
   padding: 12px 28px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 0.95rem;
-  transition: all var(--medicoed-transition-base);
-  box-shadow: 0 4px 15px rgba(29, 209, 161, 0.3);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
   font-weight: 600;
-  font-family: Tahoma, sans-serif;
 }
 
-.UploadPapers-button-link button:hover:not(:disabled) {
+.medicoed-upload-button-link button:hover:not(:disabled) {
   transform: translateY(-3px);
-  box-shadow: 0 6px 25px rgba(29, 209, 161, 0.5);
+  box-shadow: 0 6px 25px rgba(0, 212, 255, 0.3);
 }
 
-.UploadPapers-button-link button:disabled {
-  background: linear-gradient(135deg, rgba(29, 209, 161, 0.3) 0%, rgba(0, 153, 255, 0.3) 100%);
+.medicoed-upload-button-link button:disabled {
+  background: var(--medicoed-bg-tertiary);
   cursor: not-allowed;
-  color: var(--medicoed-text-tertiary);
+  color: var(--medicoed-text-secondary);
   box-shadow: none;
 }
 
-.UploadPapers-bulk-input {
+/* ==================== UPLOAD PAPERS BULK INPUT ==================== */
+
+.medicoed-upload-bulk-input {
   padding: 12px 16px;
-  border: 1px solid rgba(29, 209, 161, 0.3);
+  border: 1px solid var(--medicoed-border);
   border-radius: 8px;
   margin-bottom: 15px;
   font-size: 0.95rem;
-  background: linear-gradient(135deg, rgba(29, 209, 161, 0.05) 0%, rgba(0, 153, 255, 0.05) 100%);
+  background: var(--medicoed-bg-tertiary);
   color: var(--medicoed-text-primary);
-  font-family: Tahoma, sans-serif;
-  transition: all var(--medicoed-transition-fast);
+  font-family: inherit;
+  transition: all 0.3s ease;
   width: 100%;
   max-width: 400px;
 }
 
-.UploadPapers-bulk-input:focus {
+.medicoed-upload-bulk-input:focus {
   outline: none;
-  border-color: var(--medicoed-sea-green);
-  background: linear-gradient(135deg, rgba(29, 209, 161, 0.1) 0%, rgba(0, 153, 255, 0.1) 100%);
-  box-shadow: 0 0 20px rgba(29, 209, 161, 0.2);
+  border-color: var(--medicoed-accent-cyan);
+  background: var(--medicoed-bg-secondary);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
 }
 
-.UploadPapers-not-logged-in {
+/* ==================== UPLOAD PAPERS NOT LOGGED IN ==================== */
+
+.medicoed-upload-not-logged-in {
   text-align: center;
   padding: 40px 20px;
   color: var(--medicoed-text-secondary);
   font-size: 1.1rem;
 }
 
-/* ==================== RESPONSIVE ==================== */
+/* ==================== RESPONSIVE DESIGN ==================== */
 
 @media (max-width: 768px) {
-  .UploadPapers-container {
+  .medicoed-upload-container {
     padding: 20px;
   }
-
-  .UploadPapers-bigbox {
+  
+  .medicoed-upload-bigbox {
     padding: 20px;
   }
-
-  .UploadPapers-heading {
+  
+  .medicoed-upload-heading {
     font-size: 1.75rem;
     margin-bottom: 30px;
   }
-
-  .UploadPapers-buttons-container {
+  
+  .medicoed-upload-buttons-container {
     flex-direction: column;
   }
-
-  .UploadPapers-button-link button {
+  
+  .medicoed-upload-button-link button {
     width: 100%;
   }
-
-  .UploadPapers-file-list li {
+  
+  .medicoed-upload-file-list li {
     flex-direction: column;
     align-items: flex-start;
   }
-
-  .UploadPapers-delete-icon {
+  
+  .medicoed-upload-delete-icon {
     margin-top: 10px;
   }
 }
 
-/* Light Theme Adjustments */
-.medicoed-light-theme .UploadPapers-heading {
+/* ==================== LIGHT THEME ADJUSTMENTS ==================== */
+
+.medicoed-light-theme .medicoed-upload-heading {
   color: var(--medicoed-text-primary);
 }
 
-.medicoed-light-theme .UploadPapers-uploads-container h3 {
-  background-color: var(--medicoed-bg-secondary);
-  color: var(--medicoed-ocean-blue);
+.medicoed-light-theme .medicoed-upload-uploads-container h3 {
+  background: var(--medicoed-bg-secondary);
+  color: var(--medicoed-accent-cyan);
 }

@@ -363,15 +363,15 @@ const AIChat = () => {
   return (
     <div>
       {isLoggedIn && isSubscribed ? (
-        <div className="wl-aichat-container-dark">
-          <h1 className="wl-aichat-heading-dark">
+        <div className="medicoed-aichat-container">
+          <h1 className="medicoed-aichat-heading">
             Chat With <span>Document</span>
           </h1>
-          <div className="wl-aichat-chat-container-dark">
-            <div className="wl-aichat-pastMessages-dark">
+          <div className="medicoed-aichat-chat-container">
+            <div className="medicoed-aichat-messages">
               {messages.map((msg, index) => (
-                <div key={index} className={`wl-aichat-message-dark ${msg.type}`}>
-                  <div className="wl-aichat-message-content-dark">
+                <div key={index} className={`medicoed-aichat-message ${msg.type}`}>
+                  <div className="medicoed-aichat-message-content">
                     {msg.type === "bot" ? (
                       <ReactMarkdown remarkPlugins={[remarkGfm]}>{msg.content}</ReactMarkdown>
                     ) : (
@@ -379,10 +379,10 @@ const AIChat = () => {
                     )}
                     {msg.type === "bot" && (
                       <div>
-                        <button className="wl-aichat-save-button-dark" onClick={() => handleCopy(msg.content)}>
+                        <button className="medicoed-aichat-secondary-button" onClick={() => handleCopy(msg.content)}>
                           Copy
                         </button>
-                        <button className="wl-aichat-save-button-dark" onClick={() => openPopup(msg.content)}>
+                        <button className="medicoed-aichat-secondary-button" onClick={() => openPopup(msg.content)}>
                           Save
                         </button>
                       </div>
@@ -391,13 +391,13 @@ const AIChat = () => {
                 </div>
               ))}
             </div>
-            <div className="wl-aichat-form-section-dark">
-              <form id="chat-with-paper-form" className="wl-aichat-chat-form-dark" onSubmit={handleSubmit}>
+            <div className="medicoed-aichat-input-section">
+              <form id="chat-with-paper-form" className="medicoed-aichat-form" onSubmit={handleSubmit}>
                 <label>Select Document</label>
                 <select
                   id="filename"
                   name="filename"
-                  className="wl-aichat-file-select-dark"
+                  className="medicoed-aichat-select"
                   value={selectedFile}
                   onChange={(e) => setSelectedFile(e.target.value)}
                 >
@@ -412,7 +412,7 @@ const AIChat = () => {
                 <select
                   id="language"
                   name="language"
-                  className="wl-aichat-language-select-dark"
+                  className="medicoed-aichat-select"
                   value={selectedLanguage}
                   onChange={(e) => setSelectedLanguage(e.target.value)}
                 >
@@ -425,10 +425,10 @@ const AIChat = () => {
                 <textarea
                   id="paper-prompt"
                   name="prompt"
-                  className="wl-aichat-prompt-box-dark"
+                  className="medicoed-aichat-input"
                   placeholder="Enter your message..."
                 ></textarea>
-                <button type="submit" className="wl-aichat-button-dark">
+                <button type="submit" className="medicoed-aichat-button">
                   Submit
                 </button>
               </form>
@@ -436,8 +436,8 @@ const AIChat = () => {
           </div>
 
           {showPopup && (
-            <div className="wl-aichat-popup-dark">
-              <div className="wl-aichat-popup-content-dark">
+            <div className="medicoed-aichat-popup-overlay">
+              <div className="medicoed-aichat-popup">
                 <h2>Save Message</h2>
                 <input
                   type="text"
@@ -458,7 +458,7 @@ const AIChat = () => {
           )}
         </div>
       ) : (
-        <div className="wl-aichat-login-message-dark">Please login and subscribe to chat with paper.</div>
+        <div className="medicoed-aichat-login-message">Please login and subscribe to chat with paper.</div>
       )}
     </div>
   )

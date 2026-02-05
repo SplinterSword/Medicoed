@@ -293,17 +293,17 @@ useEffect(() => {
   }
 
   return (
-    <div className="wl-MindMapGenerator-container-dark">
-      <h1 className="wl-MindMapGenerator-title-dark">
+    <div className="medicoed-mindmaps-container">
+      <h1 className="medicoed-mindmaps-title">
         Mind Map <span>Generator</span>
       </h1>
       {isLoggedIn && isSubscribed ? (
-        <div className="wl-MindMapGenerator-form-dark">
-          <label style={{ color: "#e0e0e0" }}>Select Document</label>
+        <div className="medicoed-mindmaps-form">
+          <label style={{ color: "var(--medicoed-text-secondary)" }}>Select Document</label>
           <select
             id="filename"
             name="filename"
-            className="wl-MindMapGenerator-select-dark"
+            className="medicoed-mindmaps-select"
             value={selectedFile}
             onChange={(e) => setSelectedFile(e.target.value)}
           >
@@ -314,11 +314,11 @@ useEffect(() => {
               </option>
             ))}
           </select>
-          <label style={{ color: "#e0e0e0" }}>Select Language</label>
+          <label style={{ color: "var(--medicoed-text-secondary)" }}>Select Language</label>
           <select
             id="language"
             name="language"
-            className="wl-MindMapGenerator-select-dark"
+            className="medicoed-mindmaps-select"
             value={selectedLanguage}
             onChange={handleLanguageChange}
           >
@@ -328,7 +328,7 @@ useEffect(() => {
               </option>
             ))}
           </select>
-          <button className="wl-MindMapGenerator-button-dark" onClick={generateMindMap} disabled={loading}>
+          <button className="medicoed-mindmaps-button" onClick={generateMindMap} disabled={loading}>
             {loading ? "Generating Mind Map..." : "Generate Mind Map"}
           </button>
         </div>
@@ -336,10 +336,10 @@ useEffect(() => {
         <div>Please login and subscribe to generate Mind Maps.</div>
       )}
       {mindMapImages.length > 0 && (
-        <div className="wl-MindMapGenerator-images-container-dark">
+        <div className="medicoed-mindmaps-images-container">
           {mindMapImages.map(({ title, url }) => (
-            <div key={title} className="wl-MindMapGenerator-image-wrapper-dark">
-              <div className="wl-MindMapGenerator-zoom-controls-dark">
+            <div key={title} className="medicoed-mindmaps-image-wrapper">
+              <div className="medicoed-mindmaps-zoom-controls">
                 <button onClick={() => handleZoomIn(title)}>
                   <BsZoomIn />
                 </button>
@@ -353,7 +353,7 @@ useEffect(() => {
                   <img
                     src={url || "/placeholder.svg"}
                     alt={`Generated Mind Map ${title}`}
-                    className="wl-MindMapGenerator-image-dark"
+                    className="medicoed-mindmaps-image"
                     style={{ transform: `scale(${zoomLevels[title] || 1})` }}
                   />
                 </TransformComponent>

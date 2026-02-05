@@ -1,220 +1,360 @@
-/* SummaryGenerator.css */
+/* ==================== SUMMARY GENERATOR CONTAINER ==================== */
 
-.SummaryGenerator-container {
+.medicoed-summary-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100vh;
-  background-color: #fff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--medicoed-bg-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
 }
 
-.SummaryGenerator-heading {
-  margin: 20px 0;
-  font-size: 2rem;
-  color: #333;
-  font-weight: 500;
+/* ==================== SUMMARY GENERATOR HEADING ==================== */
+
+.medicoed-summary-heading {
+  margin: 32px 0;
+  font-size: 2.5rem;
+  color: var(--medicoed-text-primary);
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
 }
 
-.SummaryGenerator-heading span {
-  color: #ff416c;
+.medicoed-summary-heading span {
+  background: var(--medicoed-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.SummaryGenerator-chat-container {
+/* ==================== SUMMARY GENERATOR CHAT CONTAINER ==================== */
+
+.medicoed-summary-chat-container {
   display: flex;
   flex-direction: column;
   width: 90%;
   max-width: 1200px;
   height: 80vh;
-  background: #ffffff;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  background: var(--medicoed-bg-secondary);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  padding: 20px;
+  padding: 24px;
+  border: 1px solid var(--medicoed-border);
+  backdrop-filter: blur(20px);
+  position: relative;
 }
 
-.SummaryGenerator-chat {
+.medicoed-summary-chat-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--medicoed-gradient-primary);
+  opacity: 0.5;
+}
+
+/* ==================== SUMMARY GENERATOR CHAT ==================== */
+
+.medicoed-summary-chat {
   flex: 1;
-  padding: 20px;
+  padding: 24px;
   overflow-y: auto;
-  border-bottom: 1px solid #e0e0e0;
-  background-color: #f9f9f9;
+  border-bottom: 1px solid var(--medicoed-border);
+  background: var(--medicoed-bg-tertiary);
+  scrollbar-width: thin;
+  scrollbar-color: var(--medicoed-border) transparent;
 }
 
-.SummaryGenerator-message {
+.medicoed-summary-chat::-webkit-scrollbar {
+  width: 6px;
+}
+
+.medicoed-summary-chat::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.medicoed-summary-chat::-webkit-scrollbar-thumb {
+  background: var(--medicoed-border);
+  border-radius: 3px;
+}
+
+/* ==================== SUMMARY GENERATOR MESSAGES ==================== */
+
+.medicoed-summary-message {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
-  transition: transform 0.2s;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-bottom: 16px;
+  transition: transform 0.2s ease;
+  margin-left: 16px;
+  margin-right: 16px;
 }
 
-.SummaryGenerator-message.user {
+.medicoed-summary-message.user {
   justify-content: flex-end;
   transform: translateX(20px);
 }
 
-.SummaryGenerator-message.bot {
+.medicoed-summary-message.bot {
   justify-content: flex-start;
   transform: translateX(-20px);
 }
 
-.SummaryGenerator-message-content {
+.medicoed-summary-message-content {
   max-width: 60%;
-  padding: 10px 20px;
+  padding: 16px 20px;
   border-radius: 20px;
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.6;
+  word-wrap: break-word;
+  position: relative;
 }
 
-.SummaryGenerator-message.user .SummaryGenerator-message-content {
-  background-color: #ff416c;
-  color: #ffffff;
+.medicoed-summary-message.user .medicoed-summary-message-content {
+  background: var(--medicoed-gradient-primary);
+  color: var(--medicoed-text-primary);
   text-align: right;
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
+  border-bottom-right-radius: 4px;
 }
 
-.SummaryGenerator-message.bot .SummaryGenerator-message-content {
-  background-color: #e5e5e5;
-  color: #000000;
+.medicoed-summary-message.bot .medicoed-summary-message-content {
+  background: var(--medicoed-bg-tertiary);
+  color: var(--medicoed-text-secondary);
   text-align: left;
+  border: 1px solid var(--medicoed-border);
+  backdrop-filter: blur(10px);
+  border-bottom-left-radius: 4px;
 }
 
-.SummaryGenerator-form-section {
+/* ==================== SUMMARY GENERATOR FORM SECTION ==================== */
+
+.medicoed-summary-form-section {
   display: flex;
   flex-wrap: wrap;
-  align-items: center; /* Center items vertically */
-  padding: 20px;
-  background: #f7f7f7;
-  border-top: 1px solid #e0e0e0;
+  align-items: center;
+  padding: 24px;
+  background: var(--medicoed-bg-secondary);
+  border-top: 1px solid var(--medicoed-border);
 }
 
-.SummaryGenerator-form-section form {
+.medicoed-summary-form-section form {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 16px;
+  width: 100%;
 }
 
-.SummaryGenerator-input-group {
+.medicoed-summary-input-group {
   display: flex;
   flex: 1;
   align-items: center;
-  margin-right: 10px;
+  margin-right: 16px;
 }
 
-.SummaryGenerator-select {
+/* ==================== SUMMARY GENERATOR SELECT ==================== */
+
+.medicoed-summary-select {
   display: flex;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color: #ffffff;
+  padding: 12px 16px;
+  border: 1px solid var(--medicoed-border);
+  border-radius: 12px;
+  background: var(--medicoed-bg-tertiary);
+  color: var(--medicoed-text-secondary);
   cursor: pointer;
-  transition: border-color 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   flex: 1;
-  margin-right: 20px;
+  margin-right: 24px;
+  font-size: 0.95rem;
 }
 
-.SummaryGenerator-button {
-  padding: 10px 20px;
-  background: linear-gradient(90deg, #ff416c, #ff416c);
-  color: #fff;
+.medicoed-summary-select:focus {
+  outline: none;
+  border-color: var(--medicoed-accent-cyan);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+}
+
+.medicoed-summary-select option {
+  background: var(--medicoed-bg-tertiary);
+  color: var(--medicoed-text-primary);
+}
+
+/* ==================== SUMMARY GENERATOR BUTTON ==================== */
+
+.medicoed-summary-button {
+  padding: 12px 24px;
+  background: var(--medicoed-gradient-primary);
+  color: var(--medicoed-text-primary);
   border: none;
-  border-radius: 20px;
+  border-radius: 12px;
   cursor: pointer;
   font-size: 1rem;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
 }
 
-.SummaryGenerator-button:hover {
-  background: linear-gradient(90deg, #cf0080, #ff416c);
+.medicoed-summary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.3);
 }
 
-.SummaryGenerator-save-button {
-  background-color: transparent; /* Green background */
-  color: #555; /* White text */
-  border: none; /* No border */
-  padding: 5px 10px; /* Padding */
-  text-align: center; /* Center text */
-  text-decoration: none; /* No underline */
-  display: inline-block; /* Display as block */
-  margin-top: 10px; /* Margin top */
-  cursor: pointer; /* Cursor on hover */
-  border-radius: 2px; /* Rounded corners */
-  margin-left: 10px;
+.medicoed-summary-button:active {
+  transform: translateY(0);
 }
 
-.SummaryGenerator-popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  z-index: 1000; /* Ensure it's above other content */
-  width: 300px; /* Adjust width as needed */
-  border-radius: 20px;
-}
+/* ==================== SUMMARY GENERATOR SAVE BUTTON ==================== */
 
-.SummaryGenerator-popup-content {
+.medicoed-summary-save-button {
+  background: transparent;
+  color: var(--medicoed-text-secondary);
+  border: none;
+  padding: 8px 16px;
   text-align: center;
-}
-
-.SummaryGenerator-popup h2 {
-  font-size: 1.5rem;
-  color: #333;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-left: 16px;
+  transition: all 0.3s ease;
   font-weight: 500;
 }
 
-.SummaryGenerator-popup input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+.medicoed-summary-save-button:hover {
+  color: var(--medicoed-accent-cyan);
+  background: rgba(0, 212, 255, 0.1);
 }
 
-/* New styles for mobile screens */
-@media (max-width: 768px) {
+/* ==================== SUMMARY GENERATOR POPUP ==================== */
 
-  .SummaryGenerator-container {
+.medicoed-summary-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: medicoed-summary-fade-in 0.3s ease;
+}
+
+@keyframes medicoed-summary-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.medicoed-summary-popup {
+  background: var(--medicoed-bg-secondary);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+  padding: 32px;
+  z-index: 1000;
+  width: 350px;
+  border-radius: 16px;
+  border: 1px solid var(--medicoed-border);
+  animation: medicoed-summary-slide-up 0.3s ease;
+}
+
+@keyframes medicoed-summary-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.medicoed-summary-popup-content {
+  text-align: center;
+}
+
+.medicoed-summary-popup h2 {
+  font-size: 1.5rem;
+  color: var(--medicoed-text-primary);
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+
+.medicoed-summary-popup input[type="text"] {
+  width: 100%;
+  padding: 16px;
+  margin-bottom: 16px;
+  border: 1px solid var(--medicoed-border);
+  border-radius: 8px;
+  box-sizing: border-box;
+  background: var(--medicoed-bg-tertiary);
+  color: var(--medicoed-text-primary);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.medicoed-summary-popup input[type="text"]:focus {
+  border-color: var(--medicoed-accent-cyan);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+
+@media (max-width: 768px) {
+  .medicoed-summary-container {
     margin-top: -30px;
   }
-
-  .SummaryGenerator-chat-container {
+  
+  .medicoed-summary-chat-container {
     margin-top: -10px;
+    width: 95%;
+    height: 70vh;
+    padding: 16px;
   }
-
-  .SummaryGenerator-chat {
+  
+  .medicoed-summary-chat {
     font-size: 1rem;
     margin-left: -30px;
   }
-
-  .SummaryGenerator-heading {
-    font-size: 1.2rem;
+  
+  .medicoed-summary-heading {
+    font-size: 2rem;
   }
-
-  .SummaryGenerator-message-content {
-    min-width: 78%; /* Full width for message content */
+  
+  .medicoed-summary-message-content {
+    min-width: 78%;
     font-size: 14px;
   }
-
-  .SummaryGenerator-form-section {
-    align-items: center; /* Center items horizontally */
+  
+  .medicoed-summary-form-section {
+    align-items: center;
     margin-left: -30px;
     flex-wrap: wrap;
   }
-
-  .SummaryGenerator-select,
-  .SummaryGenerator-button {
-    flex: 1; /* Equal width for inputs */
-    margin-right: 10px; /* Space between inputs */
+  
+  .medicoed-summary-select,
+  .medicoed-summary-button {
+    flex: 1;
+    margin-right: 16px;
   }
-
-  .SummaryGenerator-button {
-    margin-bottom: 0; /* Remove bottom margin */
+  
+  .medicoed-summary-button {
+    margin-bottom: 0;
+  }
+  
+  .medicoed-summary-popup {
+    margin: 20px;
+    padding: 24px;
+    width: 90%;
+    max-width: 300px;
   }
 }

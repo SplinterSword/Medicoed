@@ -61,7 +61,7 @@ function Dashboard({ handleLogout }) {
   }
 
   const renderSidebar = () => (
-    <aside className={`wl-sidebar-dark ${sidebarCollapsed ? "collapsed" : ""}`}>
+    <aside className={`medicoed-sidebar ${sidebarCollapsed ? "collapsed" : ""}`}>
       <ul>
         <li>
           <Link
@@ -128,16 +128,16 @@ function Dashboard({ handleLogout }) {
   )
 
   return (
-    <div className="wl-dashboard-dark">
+    <div className="medicoed-dashboard">
       {isMobile && (
-        <button className="wl-toggle-sidebar-button-dark" onClick={toggleSidebar}>
+        <button className="medicoed-toggle-sidebar-button" onClick={toggleSidebar}>
           <FiMenu />
         </button>
       )}
 
       {renderSidebar()}
 
-      <main className="wl-main-content-dark">
+      <main className="medicoed-main-content">
         <Routes>
           <Route path="upload-papers" element={<UploadPapers />} />
           <Route path="summary-generator" element={<SummaryGenerator />} />
@@ -153,7 +153,7 @@ function Dashboard({ handleLogout }) {
           <Route
             path="/"
             element={
-              <div className="wl-welcome-section-dark">
+              <div className="medicoed-welcome-section">
                 <h1>Welcome to your Dashboard</h1>
                 <p>Select an option from the sidebar to get started.</p>
               </div>
@@ -162,11 +162,11 @@ function Dashboard({ handleLogout }) {
         </Routes>
       </main>
 
-      <button className={`wl-toggle-notes-button-dark ${showNotes ? "shifted" : ""}`} onClick={toggleNotes}>
+      <button className={`medicoed-toggle-notes-button ${showNotes ? "shifted" : ""}`} onClick={toggleNotes}>
         Notes
       </button>
       {showInfoText && (
-        <span className="wl-info-text-dark">
+        <span className="medicoed-info-text">
           You can paste your content as prompt and generate notes simultaneously <span className="arrow">→</span>
         </span>
       )}

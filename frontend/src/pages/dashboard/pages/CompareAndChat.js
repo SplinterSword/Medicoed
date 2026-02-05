@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import '../styles/ai-chat.css';
+import '../styles/compare-and-chat.css';
 
 const CompareAndChat = () => {
   const [userEmail, setUserEmail] = useState('');
@@ -330,13 +330,13 @@ const CompareAndChat = () => {
 
   return (
     <div> {isLoggedIn && isSubscribed ? (
-    <div className="AIChat-container">
-      <h1 className="AIChat-heading">Compare Documents And <span>Chat</span></h1>
-      <div className="AIChat-chat-container">
-        <div className="AIChat-pastMessages">
+    <div className="medicoed-compare-chat-container">
+      <h1 className="medicoed-compare-chat-heading">Compare Documents And <span>Chat</span></h1>
+      <div className="medicoed-compare-chat-chat-container">
+        <div className="medicoed-compare-chat-messages">
           {messages.map((msg, index) => (
-            <div key={index} className={`AIChat-message ${msg.type}`}>
-              <div className="AIChat-message-content">
+            <div key={index} className={`medicoed-compare-chat-message ${msg.type}`}>
+              <div className="medicoed-compare-chat-message-content">
                 {msg.type === 'bot' ? (
                   <ReactMarkdown  remarkPlugins={[remarkGfm]}>{msg.content}</ReactMarkdown>
                 ) : (
@@ -344,13 +344,13 @@ const CompareAndChat = () => {
                 )}
                 {msg.type === 'bot' && (
                 <div><button
-                className="AIChat-save-button"
+                className="medicoed-compare-chat-secondary-button"
                 onClick={() => handleCopy(msg.content)}
               >
                 Copy
             </button>
             <button
-                  className="AIChat-save-button"
+                  className="medicoed-compare-chat-secondary-button"
                   onClick={() => openPopup(msg.content)}
                 >
                   Save
@@ -362,13 +362,13 @@ const CompareAndChat = () => {
             </div>
           ))}
         </div>
-        <div className="AIChat-form-section">
-          <form id="compare-and-chat-form" className="AIChat-chat-form" onSubmit={handleSubmit}>
+        <div className="medicoed-compare-chat-input-section">
+          <form id="compare-and-chat-form" className="medicoed-compare-chat-form" onSubmit={handleSubmit}>
           <label>Select Documents</label>
             <select
               id="filename1"
               name="filename1"
-              className="AIChat-file-select"
+              className="medicoed-compare-chat-select"
               value={selectedFile1}
               onChange={(e) => setSelectedFile1(e.target.value)}
             >
@@ -380,7 +380,7 @@ const CompareAndChat = () => {
             <select
               id="filename2"
               name="filename2"
-              className="AIChat-file-select"
+              className="medicoed-compare-chat-select"
               value={selectedFile2}
               onChange={(e) => setSelectedFile2(e.target.value)}
             >
@@ -393,7 +393,7 @@ const CompareAndChat = () => {
             <select
               id="language"
               name="language"
-              className="AIChat-language-select"
+              className="medicoed-compare-chat-select"
               value={selectedLanguage}
               onChange={(e) => setSelectedLanguage(e.target.value)}
             >
@@ -406,16 +406,16 @@ const CompareAndChat = () => {
             <textarea
               id="paper-prompt"
               name="prompt"
-              className="AIChat-prompt-box"
+              className="medicoed-compare-chat-input"
               placeholder="Enter your message..."
             ></textarea>
-            <button type="submit" className="AIChat-button">Submit</button>
+            <button type="submit" className="medicoed-compare-chat-button">Submit</button>
           </form>
         </div>
       </div>
       {showPopup && (
-        <div className="AIChat-popup">
-          <div className="AIChat-popup-content">
+        <div className="medicoed-compare-chat-popup-overlay">
+          <div className="medicoed-compare-chat-popup">
             <h2>Save Message</h2>
             <input
               type="text"
@@ -436,7 +436,7 @@ const CompareAndChat = () => {
         )}
         </div>
       ) : (
-        <div className="AIChat-login-message">
+        <div className="medicoed-compare-chat-login-message">
           Please login and subscribe to compare and chat.
         </div>
       )}
