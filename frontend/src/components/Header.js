@@ -3,8 +3,9 @@
 import React, { useState } from 'react';
 import '../styles/header.css';
 import logo from '../assets/logo.jpeg';
+import { Link } from 'react-router-dom';
 
-const Header = ({ isDarkTheme, toggleTheme }) => {
+const Header = ({ isDarkTheme, toggleTheme, pageSelected }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -18,21 +19,21 @@ const Header = ({ isDarkTheme, toggleTheme }) => {
         </div>
 
         <nav className={`medicoed-nav ${isMenuOpen ? 'medicoed-nav-active' : ''}`}>
-          <a href="/" className="medicoed-nav-link medicoed-nav-link-active">
+          <Link to="/" className={pageSelected === '/' ? "medicoed-nav-link medicoed-nav-link-active" : "medicoed-nav-link"}>
             Home
-          </a>
-          <a href="/dashboard" className="medicoed-nav-link">
+          </Link>
+          <Link to="/dashboard" className={pageSelected === '/dashboard' ? "medicoed-nav-link medicoed-nav-link-active" : "medicoed-nav-link"}>
             Dashboard
-          </a>
-          <a href="/cases" className="medicoed-nav-link">
+          </Link>
+          <Link to="/cases" className={pageSelected === '/cases' ? "medicoed-nav-link medicoed-nav-link-active" : "medicoed-nav-link"}>
             Case Studies
-          </a>
-          <a href="/community" className="medicoed-nav-link">
+          </Link>
+          <Link to="/community" className={pageSelected === '/community' ? "medicoed-nav-link medicoed-nav-link-active" : "medicoed-nav-link"}>
             Community
-          </a>
-          <a href="/pricing" className="medicoed-nav-link">
+          </Link>
+          <Link to="/pricing" className={pageSelected === '/pricing' ? "medicoed-nav-link medicoed-nav-link-active" : "medicoed-nav-link"}>
             Pricing
-          </a>
+          </Link>
         </nav>
 
         <div className="medicoed-header-actions">

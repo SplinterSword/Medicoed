@@ -5,11 +5,13 @@ import '../styles/app.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import HomePage from '../pages/home/HomePage';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Dashboard from '../pages/dashboard/Dashboard';
 
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(true);
+  const [pageSelected, setPageSelected] = useState('/');
+  const location = useLocation();
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('medicoed-theme');
@@ -24,13 +26,17 @@ function App() {
     localStorage.setItem('medicoed-theme', isDarkTheme ? 'dark' : 'light');
   }, [isDarkTheme]);
 
+  useEffect(() => {
+    setPageSelected(location.pathname);
+  }, [location.pathname]);
+
   const toggleTheme = () => {
     setIsDarkTheme(!isDarkTheme);
   };
 
   return (
     <div className={`medicoed-app ${isDarkTheme ? 'medicoed-dark-theme' : 'medicoed-light-theme'}`}>
-      <Header isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
+      <Header isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} pageSelected={pageSelected} />
       <Routes>
         <Route path="/" element={<HomePage isDarkTheme={isDarkTheme} />} />
         <Route path="/dashboard/*" element={<Dashboard />} />
