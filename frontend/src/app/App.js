@@ -5,6 +5,7 @@ import '../styles/app.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import HomePage from '../pages/home/HomePage';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(true);
@@ -29,7 +30,11 @@ function App() {
   return (
     <div className={`medicoed-app ${isDarkTheme ? 'medicoed-dark-theme' : 'medicoed-light-theme'}`}>
       <Header isDarkTheme={isDarkTheme} toggleTheme={toggleTheme} />
-      <HomePage isDarkTheme={isDarkTheme} />
+      <Routes>
+        <Route path="/" element={<HomePage isDarkTheme={isDarkTheme} />} />
+        {/* <Route path="/dashboard/*" element={<Dashboard />} /> */}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
       <Footer isDarkTheme={isDarkTheme} />
     </div>
   );
