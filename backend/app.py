@@ -812,44 +812,44 @@ def logout():
     return jsonify({'message': 'Logged out successfully'}), 200
 
 
-# @app.route('/api/signup', methods=['POST'])
-# def signup():
-#     if request.method == 'POST':
-#         email = request.json.get('email')
+@app.route('/api/signup', methods=['POST'])
+def signup():
+    if request.method == 'POST':
+        email = request.json.get('email')
         
-#         if users_collection.find_one({'email': email}):
-#             return jsonify({'message': 'Email already exists'}), 400
+        if users_collection.find_one({'email': email}):
+            return jsonify({'message': 'Email already exists'}), 400
         
-#         name = request.json.get('name')
-#         cellNumber = request.json.get('cellNumber')
-#         collegeName = request.json.get('collegeName')
-#         country = request.json.get('country')
-#         password = request.json.get('password')
-#         invitation_code = request.json.get('invitation_code', "")
+        name = request.json.get('name')
+        cellNumber = request.json.get('cellNumber')
+        collegeName = request.json.get('collegeName')
+        country = request.json.get('country')
+        password = request.json.get('password')
+        invitation_code = request.json.get('invitation_code', "")
 
         
-#         hashed_password = generate_password_hash(password)
+        hashed_password = generate_password_hash(password)
         
-#         try:
-#             result = users_collection.insert_one({
-#                 'name': name,
-#                 'email': email,
-#                 'cellNumber': cellNumber,
-#                 'collegeName': collegeName,
-#                 'country': country,
-#                 'password': hashed_password,
-#                 'invitation_code': invitation_code,
-#                 'followers': [],
-#                 'following': [],
-#                 'liked_posts_or_replies': [],
-#                 'notes': []
-#             })
-#             print(f"Inserted document ID: {result.inserted_id}")
-#         except Exception as e:
-#             print(f"An error occurred while inserting the document: {e}")
-#             return jsonify({'message': 'Signup failed'}), 500
+        try:
+            result = users_collection.insert_one({
+                'name': name,
+                'email': email,
+                'cellNumber': cellNumber,
+                'collegeName': collegeName,
+                'country': country,
+                'password': hashed_password,
+                'invitation_code': invitation_code,
+                'followers': [],
+                'following': [],
+                'liked_posts_or_replies': [],
+                'notes': []
+            })
+            print(f"Inserted document ID: {result.inserted_id}")
+        except Exception as e:
+            print(f"An error occurred while inserting the document: {e}")
+            return jsonify({'message': 'Signup failed'}), 500
         
-#         return jsonify({'message': 'Signup successful'}), 201
+        return jsonify({'message': 'Signup successful'}), 201
 
 
 @app.route("/api/add-note", methods=['POST'])
