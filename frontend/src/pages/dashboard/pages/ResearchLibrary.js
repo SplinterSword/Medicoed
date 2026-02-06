@@ -197,10 +197,10 @@ const NotesEditor = () => {
   const filteredFiles = getSuggestions();
 
   return (
-    <div className="NotesEditor-container">
-      <div className="NotesEditor-table-section">
+    <div className="medicoed-research-container">
+      <div className="medicoed-research-table-section">
         <h2>Saved <span>Files</span></h2>
-        <div className="NotesEditor-search">
+        <div className="medicoed-research-search">
           <select value={searchCriteria} onChange={onChangeSearchCriteria}>
             <option value="title">Search by Title</option>
             <option value="tags">Search by Tags</option>
@@ -208,13 +208,13 @@ const NotesEditor = () => {
           </select>
           <input
             type="text"
-            className="NotesEditor-search-input"
+            className="medicoed-research-search-input"
             placeholder={'Search by ' + searchCriteria}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
         </div>
-        <table className="NotesEditor-table">
+        <table className="medicoed-research-table">
           <thead>
             <tr>
               <th>Title</th>
@@ -228,18 +228,18 @@ const NotesEditor = () => {
               <tr key={file.title}>
                 <td>{file.title}</td>
                 <td>
-                  <div className="NotesEditor-tags">
+                  <div className="medicoed-research-tags">
                     {file.tags.map((tag, index) => (
-                      <span key={index} className="NotesEditor-tag">{tag}</span>
+                      <span key={index} className="medicoed-research-tag">{tag}</span>
                     ))}
                   </div>
                 </td>
                 <td>{file.type}</td>
                 <td>
-                  <button className="NotesEditor-action-button" onClick={() => handleEdit(file)}>
+                  <button className="medicoed-research-action-button" onClick={() => handleEdit(file)}>
                     <FaEdit />
                   </button>
-                  <button className="NotesEditor-action-button" onClick={() => handleDelete(file.title)}>
+                  <button className="medicoed-research-action-button" onClick={() => handleDelete(file.title)}>
                     <FaTrashAlt />
                   </button>
                 </td>
@@ -248,7 +248,7 @@ const NotesEditor = () => {
           </tbody>
         </table>
       </div>
-      <div className="NotesEditor-editor-section">
+      <div className="medicoed-research-editor-section">
         {selectedFile && (
           <>
             <h2>Edit File: <span>{selectedFile.title}</span></h2>
@@ -258,7 +258,7 @@ const NotesEditor = () => {
               onChange={setEditorContent}
             />
             <div>
-              <button className="NotesEditor-save-button" onClick={handleSave}>
+              <button className="medicoed-research-save-button" onClick={handleSave}>
                 Save
               </button>
             </div>

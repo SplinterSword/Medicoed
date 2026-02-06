@@ -1,221 +1,285 @@
-/* Dark theme styles for NotesEditor component */
+/* ==================== RESEARCH LIBRARY ==================== */
 
-.NotesEditor-container {
+.medicoed-research-container {
   display: flex;
-  padding: 0px;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #000 0%, #270044 100%);
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  background: var(--medicoed-bg-primary);
   height: calc(100vh - 90px);
   box-sizing: border-box;
   overflow: hidden;
 }
 
-.NotesEditor-table-section,
-.NotesEditor-editor-section {
+.medicoed-research-table-section,
+.medicoed-research-editor-section {
   flex: 1;
   margin-left: 10px;
   margin-right: 10px;
   padding: 20px;
-  background: linear-gradient(135deg, #000 0%, #270044 100%);
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(102, 16, 242, 0.15);
-  transition: transform 0.3s ease;
+  background: linear-gradient(135deg, var(--medicoed-bg-primary) 0%, rgba(0, 212, 255, 0.03) 100%);
+  border-radius: var(--medicoed-radius-lg);
+  box-shadow: var(--medicoed-shadow-lg);
+  transition: transform var(--medicoed-transition-base);
   overflow-y: auto;
-  border: 1px solid rgba(102, 16, 242, 0.2);
+  border: 1px solid var(--medicoed-border);
+  backdrop-filter: blur(10px);
 }
 
-.NotesEditor-table-section h2,
-.NotesEditor-editor-section h2 {
+.medicoed-research-table-section h2,
+.medicoed-research-editor-section h2 {
   text-align: center;
-  color: #ffffff;
+  color: var(--medicoed-text-primary);
   margin-bottom: 20px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
   font-weight: 500;
 }
 
-.NotesEditor-table-section h2 span,
-.NotesEditor-editor-section h2 span {
-  background: linear-gradient(90deg, #7F55F7 0%, #C31DFA 100%);
+.medicoed-research-table-section h2 span,
+.medicoed-research-editor-section h2 span {
+  background: var(--medicoed-gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.NotesEditor-table {
+.medicoed-research-table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0;
 }
 
-.NotesEditor-table th,
-.NotesEditor-table td {
+.medicoed-research-table th,
+.medicoed-research-table td {
   border: none;
   padding: 15px;
-  background-color: rgba(26, 31, 77, 0.6);
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(102, 16, 242, 0.1);
-  transition: transform 0.3s ease;
-  color: #d0d0d0;
+  background-color: rgba(0, 212, 255, 0.05);
+  border-radius: var(--medicoed-radius-md);
+  box-shadow: var(--medicoed-shadow-sm);
+  transition: transform var(--medicoed-transition-base);
+  color: var(--medicoed-text-secondary);
 }
 
-.NotesEditor-table th {
-  background: rgba(102, 16, 242, 0.15);
-  color: #9d4edd;
+.medicoed-research-table tr {
+  display: flex;
+  justify-content: space-between;
+}
+
+.medicoed-research-table th {
+  background: rgba(0, 212, 255, 0.1);
+  color: var(--medicoed-accent-cyan);
   text-transform: uppercase;
   font-weight: 600;
+  text-align: center;
 }
 
-.NotesEditor-table tr:nth-child(even) {
-  background-color: rgba(26, 31, 77, 0.4);
+.medicoed-research-table tr:nth-child(even) {
+  background-color: rgba(0, 212, 255, 0.03);
 }
 
-.NotesEditor-table tr:hover {
-  background-color: rgba(102, 16, 242, 0.1);
+.medicoed-research-table th:hover {
+  background-color: rgba(0, 212, 255, 0.08);
+  transform: translateY(-2px);
 }
 
-.NotesEditor-tags {
+.medicoed-research-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
   justify-content: center;
 }
 
-.NotesEditor-tag {
-  background: linear-gradient(90deg, #7F55F7 0%, #C31DFA 100%);
-  color: #fff;
+.medicoed-research-tag {
+  background: var(--medicoed-gradient-primary);
+  color: var(--medicoed-text-primary);
   padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: var(--medicoed-radius-sm);
   font-size: 0.9rem;
+  font-weight: 500;
 }
 
-.NotesEditor-action-button {
+.medicoed-research-action-button {
   background: none;
   border: none;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform var(--medicoed-transition-base);
   padding: 5px;
-  color: #9d4edd;
+  color: var(--medicoed-accent-cyan);
+  border-radius: var(--medicoed-radius-sm);
 }
 
-.NotesEditor-action-button:hover {
+.medicoed-research-action-button:hover {
   transform: translateY(-3px);
-  color: #b366ff;
+  color: var(--medicoed-accent-teal);
+  background: rgba(0, 212, 255, 0.1);
 }
 
-.NotesEditor-save-button,
-.NotesEditor-download-button {
+.medicoed-research-save-button,
+.medicoed-research-download-button {
   display: block;
   margin: 20px auto;
-  padding: 10px 20px;
-  background: linear-gradient(90deg, #7F55F7 0%, #C31DFA 100%);
-  color: white;
+  padding: 12px 24px;
+  background: var(--medicoed-gradient-primary);
+  color: var(--medicoed-text-primary);
   border: none;
-  border-radius: 20px;
+  border-radius: var(--medicoed-radius-lg);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--medicoed-transition-base);
   font-weight: 600;
+  font-size: 1rem;
+  box-shadow: var(--medicoed-shadow-md);
 }
 
-.NotesEditor-save-button:hover,
-.NotesEditor-download-button:hover {
+.medicoed-research-save-button:hover,
+.medicoed-research-download-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(102, 16, 242, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.25);
 }
 
-.NotesEditor-search {
+.medicoed-research-search {
   margin-bottom: 20px;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.NotesEditor-search select,
-.NotesEditor-search input {
-  padding: 10px;
+.medicoed-research-search select,
+.medicoed-research-search input {
+  padding: 12px 16px;
   font-size: 16px;
-  border: 1px solid rgba(102, 16, 242, 0.3);
-  border-radius: 5px;
-  background-color: rgba(15, 21, 53, 0.8);
-  color: #ffffff;
-  transition: all 0.3s ease;
+  border: 1px solid var(--medicoed-border);
+  border-radius: var(--medicoed-radius-md);
+  background-color: rgba(0, 212, 255, 0.05);
+  color: var(--medicoed-text-primary);
+  transition: all var(--medicoed-transition-base);
+  backdrop-filter: blur(10px);
 }
 
-.NotesEditor-search select {
+.medicoed-research-search select {
   cursor: pointer;
 }
 
-.NotesEditor-search input:focus,
-.NotesEditor-search select:focus {
+.medicoed-research-search input:focus,
+.medicoed-research-search select:focus {
   outline: none;
-  border-color: rgba(102, 16, 242, 0.6);
-  box-shadow: 0 0 10px rgba(102, 16, 242, 0.2);
+  border-color: var(--medicoed-accent-cyan);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
 }
 
-.NotesEditor-search input::placeholder {
-  color: #999;
+.medicoed-research-search input::placeholder {
+  color: var(--medicoed-text-tertiary);
 }
 
-.NotesEditor-search .react-autosuggest__container {
+.medicoed-research-search .react-autosuggest__container {
   flex-grow: 1;
 }
 
-.NotesEditor-search .react-autosuggest__input {
+.medicoed-research-search .react-autosuggest__input {
   width: 100%;
 }
 
-.NotesEditor-search .react-autosuggest__suggestions-container {
+.medicoed-research-search .react-autosuggest__suggestions-container {
   display: none;
   position: absolute;
-  background-color: rgba(15, 21, 53, 0.95);
-  border: 1px solid rgba(102, 16, 242, 0.3);
+  background-color: var(--medicoed-bg-primary);
+  border: 1px solid var(--medicoed-border);
   max-height: 200px;
   overflow-y: auto;
   z-index: 999;
-  border-radius: 5px;
+  border-radius: var(--medicoed-radius-md);
+  box-shadow: var(--medicoed-shadow-lg);
+  backdrop-filter: blur(10px);
 }
 
-.NotesEditor-search .react-autosuggest__suggestions-container--open {
+.medicoed-research-search .react-autosuggest__suggestions-container--open {
   display: block;
 }
 
-.NotesEditor-search .react-autosuggest__suggestions-list {
+.medicoed-research-search .react-autosuggest__suggestions-list {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
 
-.NotesEditor-search .react-autosuggest__suggestion {
-  padding: 10px 15px;
+.medicoed-research-search .react-autosuggest__suggestion {
+  padding: 12px 16px;
   cursor: pointer;
-  color: #d0d0d0;
+  color: var(--medicoed-text-secondary);
+  transition: background-color var(--medicoed-transition-base);
 }
 
-.NotesEditor-search .react-autosuggest__suggestion--highlighted {
-  background-color: rgba(102, 16, 242, 0.2);
+.medicoed-research-search .react-autosuggest__suggestion:hover {
+  background-color: rgba(0, 212, 255, 0.1);
+}
+
+.medicoed-research-search .react-autosuggest__suggestion--highlighted {
+  background-color: rgba(0, 212, 255, 0.15);
+}
+
+/* React Quill Customization */
+.medicoed-research-editor-section .ql-toolbar {
+  background: rgba(0, 212, 255, 0.05);
+  border: 1px solid var(--medicoed-border);
+  border-radius: var(--medicoed-radius-md) var(--medicoed-radius-md) 0 0;
+  backdrop-filter: blur(10px);
+}
+
+.medicoed-research-editor-section .ql-container {
+  background: rgba(0, 212, 255, 0.02);
+  border: 1px solid var(--medicoed-border);
+  border-top: none;
+  border-radius: 0 0 var(--medicoed-radius-md) var(--medicoed-radius-md);
+  color: var(--medicoed-text-primary);
+  backdrop-filter: blur(10px);
+}
+
+.medicoed-research-editor-section .ql-editor {
+  color: var(--medicoed-text-primary);
+}
+
+.medicoed-research-editor-section .ql-toolbar .ql-stroke {
+  stroke: var(--medicoed-accent-cyan);
+}
+
+.medicoed-research-editor-section .ql-toolbar .ql-fill {
+  fill: var(--medicoed-accent-cyan);
+}
+
+.medicoed-research-editor-section .ql-toolbar .ql-picker {
+  color: var(--medicoed-text-primary);
 }
 
 @media (max-width: 768px) {
-  .NotesEditor-container {
+  .medicoed-research-container {
     flex-direction: column;
     padding: 10px;
     height: auto;
   }
 
-  .NotesEditor-table-section,
-  .NotesEditor-editor-section {
+  .medicoed-research-table-section,
+  .medicoed-research-editor-section {
     margin: 10px 5px;
     padding: 15px;
     max-width: 100%;
     height: auto;
   }
 
-  .NotesEditor-table th,
-  .NotesEditor-table td {
+  .medicoed-research-table th,
+  .medicoed-research-table td {
     padding: 8px;
   }
 
-  .NotesEditor-save-button,
-  .NotesEditor-download-button {
-    padding: 8px 16px;
+  .medicoed-research-save-button,
+  .medicoed-research-download-button {
+    padding: 10px 20px;
+  }
+
+  .medicoed-research-search {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .medicoed-research-search select,
+  .medicoed-research-search input {
+    width: 100%;
   }
 }
