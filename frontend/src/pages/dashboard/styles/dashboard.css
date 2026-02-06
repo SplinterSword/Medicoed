@@ -64,26 +64,6 @@
 .medicoed-sidebar li {
   margin: 16px 0;
   position: relative;
-  overflow: visible;
-}
-
-.medicoed-sidebar li::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: -12px;              
-  width: 0;
-  background: var(--medicoed-gradient-primary);
-  border-radius: 12px;
-  opacity: 0;
-  transition: width 0.3s ease, opacity 0.3s ease;
-  z-index: -1;
-}
-
-.medicoed-sidebar li:hover::before {
-  width: calc(100% + 12px);
-  opacity: 1;
 }
 
 /* ==================== SIDEBAR LINKS ==================== */
@@ -102,16 +82,21 @@
   color: var(--medicoed-text-secondary);
 
   transition: all 0.25s ease;
+  z-index: 1;
 }
 
 .medicoed-sidebar a::before {
-  content: '';
+  content: "";
   position: absolute;
-  inset: 0;
+  top: 0;
+  bottom: 0;
+  left: -12px;                      /* extend left */
+  width: 0;
   background: var(--medicoed-gradient-primary);
+  border-radius: 12px;
   opacity: 0;
+  transition: width 0.3s ease, opacity 0.3s ease;
   z-index: -1;
-  transition: opacity 0.25s ease;
 }
 
 .medicoed-sidebar a:hover,
@@ -123,6 +108,7 @@
 
 .medicoed-sidebar a:hover::before,
 .medicoed-sidebar a.active::before {
+  width: calc(100% + 12px);
   opacity: 1;
 }
 
