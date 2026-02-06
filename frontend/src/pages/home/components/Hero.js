@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import { FaBook, FaRobot, FaComments, FaMapSigns, FaLightbulb, FaTrophy, FaRocket } from 'react-icons/fa';
+import darkThemeLandingPic from '../../../assets/dark_theme_landing_pic.png';
+import lightThemeLandingPic from '../../../assets/light_theme_landing_pic.png';
 import '../styles/hero.css';
 
 const Hero = ({ isDarkTheme }) => {
@@ -66,7 +68,7 @@ const Hero = ({ isDarkTheme }) => {
           </button>
         </div>*/}
 
-        <div className="medicoed-hero-stats">
+        {/* <div className="medicoed-hero-stats">
           <div className="medicoed-stat-item">
             <span className="medicoed-stat-number">AI Powered</span>
             <span className="medicoed-stat-label">Analysis</span>
@@ -81,9 +83,41 @@ const Hero = ({ isDarkTheme }) => {
             <span className="medicoed-stat-number">24/7</span>
             <span className="medicoed-stat-label">AI Support</span>
           </div>
-        </div>
+        </div> */}
       </div>
 
+      <div
+        className="medicoed-hero-card-container"
+        style={{ transform: `translateY(${Math.min(scrollProgress * 0.3, 100)}px)` }}
+      >
+        <img
+          src={isDarkTheme ? darkThemeLandingPic : lightThemeLandingPic}
+          alt="Medicoed Landing"
+          className="medicoed-hero-card medicoed-hero-card-glow"
+          style={{
+            width: '100%',
+            height: 'auto',
+            borderRadius: 'var(--medicoed-radius-2xl)',
+            border: '1px solid var(--medicoed-border)',
+            background: isDarkTheme ? 'rgba(10, 14, 39, 0.6)' : 'rgba(255, 255, 255, 0.7)',
+            backdropFilter: 'blur(10px)',
+            transition: 'all var(--medicoed-transition-base)',
+            boxShadow: '0 0 50px rgba(32, 201, 151, 0.15), 0 10px 40px rgba(0, 0, 0, 0.1)'
+          }}
+          onMouseOver={(e) => {
+            e.target.style.borderColor = 'var(--medicoed-sea-green)';
+            e.target.style.boxShadow = '0 0 60px rgba(32, 201, 151, 0.25), 0 20px 60px rgba(0, 0, 0, 0.15)';
+            e.target.style.transform = 'translateY(-5px)';
+          }}
+          onMouseOut={(e) => {
+            e.target.style.borderColor = 'var(--medicoed-border)';
+            e.target.style.boxShadow = '0 0 50px rgba(32, 201, 151, 0.15), 0 10px 40px rgba(0, 0, 0, 0.1)';
+            e.target.style.transform = 'translateY(0)';
+          }}
+        />
+      </div>
+      
+      {/*
       <div
         className="medicoed-hero-card-container"
         style={{ transform: `translateY(${Math.min(scrollProgress * 0.3, 100)}px)` }}
@@ -138,6 +172,7 @@ const Hero = ({ isDarkTheme }) => {
           </div>
         </div>
       </div>
+      */}
     </section>
   );
 };
