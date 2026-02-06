@@ -7,6 +7,7 @@ import Footer from '../components/Footer';
 import HomePage from '../pages/home/HomePage';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Dashboard from '../pages/dashboard/Dashboard';
+import PricingPage from '../pages/pricing/PricingPage';
 
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(true);
@@ -40,6 +41,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage isDarkTheme={isDarkTheme} />} />
         <Route path="/dashboard/*" element={<Dashboard />} />
+        <Route path="/pricing/*" element={<PricingPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer isDarkTheme={isDarkTheme} />

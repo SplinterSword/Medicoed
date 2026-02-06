@@ -1,0 +1,351 @@
+/* PricingPage.css - Medicoed Theme */
+
+.medicoed-plan-description {
+  max-width: 350px;
+  display: inline-block;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: center;
+  margin-top: var(--medicoed-spacing-md);
+  font-size: 0.9rem;
+  color: var(--medicoed-text-tertiary);
+  line-height: 1.6;
+}
+
+.medicoed-pricing-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--medicoed-bg-primary);
+  color: var(--medicoed-text-primary);
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.medicoed-pricing-container {
+  padding: var(--medicoed-spacing-3xl) var(--medicoed-spacing-lg);
+  background-color: var(--medicoed-bg-primary);
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.medicoed-pricing-header {
+  text-align: center;
+  margin-bottom: var(--medicoed-spacing-3xl);
+}
+
+.medicoed-pricing-header h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 800;
+  margin-bottom: var(--medicoed-spacing-lg);
+  font-family: 'Tahoma', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.medicoed-pricing-header h1 span {
+  background: var(--medicoed-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.medicoed-pricing-header p {
+  font-size: 1.2rem;
+  color: var(--medicoed-text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.medicoed-pricing-plans {
+  display: flex;
+  justify-content: center;
+  gap: var(--medicoed-spacing-xl);
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.medicoed-pricing-plan {
+  background: linear-gradient(135deg, rgba(0, 148, 255, 0.1), rgba(0, 153, 255, 0.05));
+  border: 1px solid var(--medicoed-border);
+  border-radius: var(--medicoed-radius-2xl);
+  box-shadow: var(--medicoed-shadow-xl), 0 0 40px rgba(0, 148, 255, 0.1);
+  padding: var(--medicoed-spacing-2xl);
+  width: 400px;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--medicoed-transition-base);
+  backdrop-filter: blur(10px);
+  flex: 1;
+  min-width: 350px;
+}
+
+.medicoed-pricing-plan::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 255, 247, 0.1) 0%, transparent 70%);
+  animation: medicoed-glow-float 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+.medicoed-pricing-plan:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--medicoed-shadow-xl), 0 0 60px rgba(0, 148, 255, 0.2);
+  border-color: var(--medicoed-sea-green);
+}
+
+.medicoed-pricing-plan h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: 'Tahoma', sans-serif;
+  margin-bottom: var(--medicoed-spacing-lg);
+  position: relative;
+  z-index: 1;
+  color: var(--medicoed-text-primary);
+}
+
+.medicoed-price {
+  font-size: 3rem;
+  font-weight: 800;
+  font-family: 'Tahoma', sans-serif;
+  margin-bottom: var(--medicoed-spacing-lg);
+  position: relative;
+  z-index: 1;
+  background: var(--medicoed-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.medicoed-plan-features {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  color: var(--medicoed-text-secondary);
+  position: relative;
+  z-index: 1;
+  text-align: left;
+}
+
+.medicoed-plan-features li {
+  padding: var(--medicoed-spacing-sm) 0;
+  border-bottom: 1px solid var(--medicoed-border);
+  position: relative;
+  padding-left: var(--medicoed-spacing-lg);
+}
+
+.medicoed-plan-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--medicoed-sea-green);
+  font-weight: bold;
+}
+
+.medicoed-plan-features li:last-child {
+  border-bottom: none;
+}
+
+.medicoed-cta-button {
+  background: var(--medicoed-gradient-primary);
+  color: white;
+  border: none;
+  border-radius: var(--medicoed-radius-xl);
+  padding: var(--medicoed-spacing-md) var(--medicoed-spacing-xl);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--medicoed-transition-base);
+  position: relative;
+  z-index: 1;
+  box-shadow: var(--medicoed-shadow-glow);
+  letter-spacing: 0.5px;
+  margin-top: var(--medicoed-spacing-lg);
+  width: 100%;
+  max-width: 300px;
+}
+
+.medicoed-cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--medicoed-shadow-glow), 0 10px 30px rgba(0, 255, 247, 0.4);
+}
+
+.medicoed-custom-plan {
+  background: linear-gradient(135deg, rgba(255, 65, 108, 0.1), rgba(207, 0, 128, 0.05));
+  border: 2px solid #ff416c;
+  box-shadow: var(--medicoed-shadow-xl), 0 0 40px rgba(255, 65, 108, 0.1);
+  width: 400px;
+  max-width: 400px;
+  border-radius: var(--medicoed-radius-2xl);
+  transition: all var(--medicoed-transition-base);
+  backdrop-filter: blur(10px);
+  flex: 1;
+  min-width: 350px;
+}
+
+.medicoed-custom-plan:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--medicoed-shadow-xl), 0 0 60px rgba(255, 65, 108, 0.2);
+}
+
+.medicoed-custom-plan h2 {
+  color: #ff416c;
+}
+
+.medicoed-custom-info {
+  font-size: 1rem;
+  color: var(--medicoed-text-secondary);
+  margin-bottom: var(--medicoed-spacing-lg);
+  line-height: 1.6;
+}
+
+.medicoed-manage-subscription {
+  text-align: center;
+  margin: var(--medicoed-spacing-2xl) 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.medicoed-manage-subscription-link {
+  color: var(--medicoed-sea-green);
+  text-decoration: none;
+  font-weight: 600;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 1rem;
+  transition: all var(--medicoed-transition-base);
+  padding: var(--medicoed-spacing-sm) var(--medicoed-spacing-md);
+  border-radius: var(--medicoed-radius-md);
+  border: 1px solid transparent;
+}
+
+.medicoed-manage-subscription-link:hover {
+  color: var(--medicoed-light-ocean);
+  text-decoration: none;
+  background: rgba(0, 148, 255, 0.1);
+  border-color: var(--medicoed-sea-green);
+  transform: translateY(-2px);
+}
+
+.medicoed-reload-message {
+  text-align: center;
+  margin-top: var(--medicoed-spacing-xl);
+  font-size: 0.9rem;
+  color: var(--medicoed-text-tertiary);
+  padding: var(--medicoed-spacing-md);
+  background: rgba(0, 148, 255, 0.05);
+  border-radius: var(--medicoed-radius-lg);
+  border: 1px solid var(--medicoed-border);
+  width: 100%;
+  max-width: 800px;
+  margin: var(--medicoed-spacing-xl) auto 0;
+}
+
+/* Stripe button containers styling */
+#stripe-buy-button-container,
+#stripe-buy-button-container2 {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#stripe-buy-button-container::after,
+#stripe-buy-button-container2::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--medicoed-gradient-primary);
+  opacity: 0;
+  transition: opacity var(--medicoed-transition-base);
+  border-radius: var(--medicoed-radius-2xl);
+  z-index: -1;
+}
+
+#stripe-buy-button-container:hover::after,
+#stripe-buy-button-container2:hover::after {
+  opacity: 0.1;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .medicoed-pricing-plans {
+    max-width: 1000px;
+  }
+  
+  .medicoed-pricing-plan,
+  .medicoed-custom-plan {
+    width: 350px;
+    max-width: 350px;
+    min-width: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  .medicoed-pricing-container {
+    padding: var(--medicoed-spacing-xl) var(--medicoed-spacing-md);
+  }
+
+  .medicoed-pricing-plans {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--medicoed-spacing-lg);
+    max-width: 400px;
+  }
+
+  .medicoed-pricing-plan,
+  .medicoed-custom-plan {
+    width: 100%;
+    max-width: 400px;
+    min-width: 300px;
+  }
+
+  .medicoed-pricing-header h1 {
+    font-size: 2rem;
+  }
+
+  .medicoed-pricing-header p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .medicoed-pricing-container {
+    padding: var(--medicoed-spacing-lg) var(--medicoed-spacing-sm);
+  }
+
+  .medicoed-pricing-plan,
+  .medicoed-custom-plan {
+    padding: var(--medicoed-spacing-lg);
+    min-width: 280px;
+  }
+
+  .medicoed-pricing-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .medicoed-price {
+    font-size: 2.5rem;
+  }
+}
