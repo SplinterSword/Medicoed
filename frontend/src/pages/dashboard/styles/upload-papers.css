@@ -381,6 +381,35 @@
   }
 }
 
+.medicoed-upload-button-link {
+  text-decoration: none;
+}
+
+.medicoed-upload-button-link button {
+  background: var(--medicoed-gradient-primary);
+  color: var(--medicoed-text-primary);
+  padding: 12px 28px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
+  font-weight: 600;
+}
+
+.medicoed-upload-button-link button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(0, 212, 255, 0.3);
+}
+
+.medicoed-upload-button-link button:disabled {
+  background: var(--medicoed-bg-tertiary);
+  cursor: not-allowed;
+  color: var(--medicoed-text-secondary);
+  box-shadow: none;
+}
+
 /* ==================== LIGHT THEME ADJUSTMENTS ==================== */
 
 .medicoed-light-theme .medicoed-upload-heading {
