@@ -138,12 +138,13 @@
 .medicoed-research-search {
   margin-bottom: 20px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
 }
 
 .medicoed-research-search select,
 .medicoed-research-search input {
+  width: 45%;
   padding: 12px 16px;
   font-size: 16px;
   border: 1px solid var(--medicoed-border);
