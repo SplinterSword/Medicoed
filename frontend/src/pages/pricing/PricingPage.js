@@ -48,37 +48,37 @@ const PricingPage = () => {
               <h2>Standard</h2>
               <div className="medicoed-price">$9.99<span style={{ fontSize: '1rem', color: 'var(--medicoed-text-secondary)' }}>/month</span></div>
               <div id="stripe-buy-button-container">
-              <stripe-buy-button
-                buy-button-id="buy_btn_1Qwd4nKVV0DxAE32PBDHjPuL"
-                publishable-key="pk_live_51Qf3SNKVV0DxAE32lMWfeqDWfo2HQ7cdVOgTkUnYPwGZrzNTQjMU2K8Q6yxfGhZgr26F9U7lIQ12SaK8bgU9ctFs00tM0KomlG"
-              >
-              </stripe-buy-button>
-              <div>
-                <p className="medicoed-plan-description">
-                  Unlimited PDF uploads, Generating up to 500 flashcards/month, Mind map creation, and question generation.
-                </p>
-              </div>
+                <stripe-buy-button
+                  buy-button-id="buy_btn_1Qwd4nKVV0DxAE32PBDHjPuL"
+                  publishable-key="pk_live_51Qf3SNKVV0DxAE32lMWfeqDWfo2HQ7cdVOgTkUnYPwGZrzNTQjMU2K8Q6yxfGhZgr26F9U7lIQ12SaK8bgU9ctFs00tM0KomlG"
+                >
+                </stripe-buy-button>
+                <div>
+                  <p className="medicoed-plan-description">
+                    Unlimited PDF uploads, Generating up to 500 flashcards/month, Mind map creation, and question generation.
+                  </p>
+                </div>
               </div>
             </div>
-            
+
             {/* Premium Plan */}
             <div className="medicoed-pricing-plan">
               <h2>Premium</h2>
               <div className="medicoed-price">$19.99<span style={{ fontSize: '1rem', color: 'var(--medicoed-text-secondary)' }}>/month</span></div>
               <div id="stripe-buy-button-container2">
-              <stripe-buy-button
-              buy-button-id="buy_btn_1Qwd3dKVV0DxAE32BJzZllfV"
-              publishable-key="pk_live_51Qf3SNKVV0DxAE32lMWfeqDWfo2HQ7cdVOgTkUnYPwGZrzNTQjMU2K8Q6yxfGhZgr26F9U7lIQ12SaK8bgU9ctFs00tM0KomlG"
-              >
-              </stripe-buy-button>
-              <div>
-                <p className="medicoed-plan-description">
-                  All Standard features, Unlimited access to all tools, Chat with documents and case studies, Advanced AI tools for personalized recommendations, and Certificate of completion for case studies.
-                </p>
-              </div>
+                <stripe-buy-button
+                  buy-button-id="buy_btn_1Qwd3dKVV0DxAE32BJzZllfV"
+                  publishable-key="pk_live_51Qf3SNKVV0DxAE32lMWfeqDWfo2HQ7cdVOgTkUnYPwGZrzNTQjMU2K8Q6yxfGhZgr26F9U7lIQ12SaK8bgU9ctFs00tM0KomlG"
+                >
+                </stripe-buy-button>
+                <div>
+                  <p className="medicoed-plan-description">
+                    All Standard features, Unlimited access to all tools, Chat with documents and case studies, Advanced AI tools for personalized recommendations, and Certificate of completion for case studies.
+                  </p>
+                </div>
               </div>
             </div>
-            
+
             {/* Universities Plan */}
             <div className="medicoed-pricing-plan medicoed-custom-plan">
               <h2>Universities</h2>
@@ -95,10 +95,10 @@ const PricingPage = () => {
           </div>
         </div>
         <div className="medicoed-manage-subscription">
-            <Link to="https://billing.stripe.com/p/login/bIY6qw7XH5U7axW4gg" className="medicoed-manage-subscription-link">
-              Manage Subscription
-            </Link>
-          </div>
+          <Link to="https://billing.stripe.com/p/login/bIY6qw7XH5U7axW4gg" className="medicoed-manage-subscription-link">
+            Manage Subscription
+          </Link>
+        </div>
       </div>
     </div>
   );
