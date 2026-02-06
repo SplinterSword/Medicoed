@@ -162,6 +162,30 @@
   border-bottom: none;
 }
 
+.medicoed-cta-button {
+  background: var(--medicoed-gradient-primary);
+  color: white;
+  border: none;
+  border-radius: var(--medicoed-radius-xl);
+  padding: var(--medicoed-spacing-md) var(--medicoed-spacing-xl);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--medicoed-transition-base);
+  position: relative;
+  z-index: 1;
+  box-shadow: var(--medicoed-shadow-glow);
+  letter-spacing: 0.5px;
+  margin-top: var(--medicoed-spacing-lg);
+  width: 100%;
+  max-width: 300px;
+}
+
+.medicoed-cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--medicoed-shadow-glow), 0 10px 30px rgba(0, 255, 247, 0.4);
+}
+
 .medicoed-custom-plan {
   background: linear-gradient(135deg, rgba(255, 65, 108, 0.1), rgba(207, 0, 128, 0.05));
   border: 2px solid #ff416c;
