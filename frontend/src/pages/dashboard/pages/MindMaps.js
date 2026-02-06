@@ -333,7 +333,7 @@ useEffect(() => {
           </button>
         </div>
       ) : (
-        <div>Please login and subscribe to generate Mind Maps.</div>
+        <div style={{ color: "var(--medicoed-text-secondary)", textAlign: "center" }}>Please login and subscribe to generate Mind Maps.</div>
       )}
       {mindMapImages.length > 0 && (
         <div className="medicoed-mindmaps-images-container">

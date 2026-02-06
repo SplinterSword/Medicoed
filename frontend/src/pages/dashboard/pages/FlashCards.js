@@ -361,7 +361,7 @@ useEffect(() => {
           )}
         </div>
       ) : (
-        <div>Please login and subscribe to generate Flashcards.</div>
+        <div style={{ color: "var(--medicoed-text-secondary)", textAlign: "center" }}>Please login and subscribe to generate Flashcards.</div>
       )}
       {showPopup && (
         <div className="medicoed-flashcards-popup-overlay">

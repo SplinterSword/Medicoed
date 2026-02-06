@@ -382,7 +382,7 @@ const QuestionsGenerator = () => {
           </button>
         </div>
       ) : (
-        <p>Please login and subscribe to generate quiz.</p>
+        <p style={{ color: "var(--medicoed-text-secondary)", textAlign: "center" }}>Please login and subscribe to generate quiz.</p>
       )}
       <div className="medicoed-questions-quiz">
         {quiz.length > 0 &&
