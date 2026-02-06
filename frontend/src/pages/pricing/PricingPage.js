@@ -86,7 +86,7 @@ const PricingPage = () => {
               <p className="medicoed-custom-info">
                 Personalized plan tailored to your specific needs. Get in touch to discuss your requirements and pricing.
               </p>
-              <button className="medicoed-cta-button">Contact Us</button>
+              <button className="medicoed-pricing-cta-button">Contact Us</button>
               <p style={{ fontSize: '0.9rem', color: 'var(--medicoed-text-tertiary)', marginTop: 'var(--medicoed-spacing-md)' }}>Custom checkout coming soon...</p>
             </div>
           </div>
