@@ -4,11 +4,14 @@ import React, { useState } from 'react';
 import '../styles/header.css';
 import logo from '../assets/logo.jpeg';
 import { Link } from 'react-router-dom';
+import LoginModal from './LoginModal';
 
 const Header = ({ isDarkTheme, toggleTheme, pageSelected }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
   return (
+    <>
     <header className="medicoed-header">
       <div className="medicoed-header-container">
         <div className="medicoed-logo">
@@ -57,7 +60,7 @@ const Header = ({ isDarkTheme, toggleTheme, pageSelected }) => {
             )}
           </button>
 
-          <button className="medicoed-cta-button medicoed-cta-button-primary">
+          <button className="medicoed-cta-button medicoed-cta-button-primary" onClick={() => setIsLoginModalOpen(true)}>
             Get Started
           </button>
 
@@ -75,6 +78,11 @@ const Header = ({ isDarkTheme, toggleTheme, pageSelected }) => {
 
       <div className="medicoed-header-underline" />
     </header>
+    <LoginModal 
+        isOpen={isLoginModalOpen} 
+        onClose={() => setIsLoginModalOpen(false)} 
+      />
+    </>
   );
 };
 
