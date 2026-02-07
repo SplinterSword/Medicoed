@@ -131,49 +131,49 @@ function Dashboard({ handleLogout }) {
   return (
     <AuthProvider requireAuth>
       <div className="medicoed-dashboard">
-      {isMobile && (
-        <button className="medicoed-toggle-sidebar-button" onClick={toggleSidebar}>
-          <FiMenu />
+        {isMobile && (
+          <button className="medicoed-toggle-sidebar-button" onClick={toggleSidebar}>
+            <FiMenu />
+          </button>
+        )}
+
+        {renderSidebar()}
+
+        <main className="medicoed-main-content">
+          <Routes>
+            <Route path="upload-papers" element={<UploadPapers />} />
+            <Route path="summary-generator" element={<SummaryGenerator />} />
+            <Route path="comparison-tool" element={<ComparisonTool />} />
+            <Route path="ai-chat" element={<AIChat />} />
+            <Route path="questions-generator" element={<QuestionsGenerator />} />
+            <Route path="mind-maps" element={<MindMaps />} />
+            <Route path="research-library" element={<ResearchLibrary />} />
+            <Route path="compare-and-chat" element={<CompareAndChat />} />
+            <Route path="upload-dashboard" element={<UploadDashboard />} />
+            <Route path="flashcards" element={<Flashcards />} />
+
+            <Route
+              path="/"
+              element={
+                <div className="medicoed-welcome-section">
+                  <h1>Welcome to your Dashboard</h1>
+                  <p>Select an option from the sidebar to get started.</p>
+                </div>
+              }
+            />
+          </Routes>
+        </main>
+
+        <button className={`medicoed-toggle-notes-button ${showNotes ? "shifted" : ""}`} onClick={toggleNotes}>
+          Notes
         </button>
-      )}
+        {showInfoText && (
+          <span className="medicoed-info-text">
+            You can paste your content as prompt and generate notes simultaneously <span className="arrow">→</span>
+          </span>
+        )}
 
-      {renderSidebar()}
-
-      <main className="medicoed-main-content">
-        <Routes>
-          <Route path="upload-papers" element={<UploadPapers />} />
-          <Route path="summary-generator" element={<SummaryGenerator />} />
-          <Route path="comparison-tool" element={<ComparisonTool />} />
-          <Route path="ai-chat" element={<AIChat />} />
-          <Route path="questions-generator" element={<QuestionsGenerator />} />
-          <Route path="mind-maps" element={<MindMaps />} />
-          <Route path="research-library" element={<ResearchLibrary />} />
-          <Route path="compare-and-chat" element={<CompareAndChat />} />
-          <Route path="upload-dashboard" element={<UploadDashboard />} />
-          <Route path="flashcards" element={<Flashcards />} />
-
-          <Route
-            path="/"
-            element={
-              <div className="medicoed-welcome-section">
-                <h1>Welcome to your Dashboard</h1>
-                <p>Select an option from the sidebar to get started.</p>
-              </div>
-            }
-          />
-        </Routes>
-      </main>
-
-      <button className={`medicoed-toggle-notes-button ${showNotes ? "shifted" : ""}`} onClick={toggleNotes}>
-        Notes
-      </button>
-      {showInfoText && (
-        <span className="medicoed-info-text">
-          You can paste your content as prompt and generate notes simultaneously <span className="arrow">→</span>
-        </span>
-      )}
-
-      {showNotes && <Notes showNotes={showNotes} />}
+        {showNotes && <Notes showNotes={showNotes} />}
       </div>
     </AuthProvider>
   )
