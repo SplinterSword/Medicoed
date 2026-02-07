@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import '../styles/login-modal.css';
 
-const LoginModal = ({ isOpen, onClose }) => {
+const LoginModal = ({ isOpen, onClose, onAuthSuccess }) => {
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
     email: '',
@@ -38,8 +38,12 @@ const LoginModal = ({ isOpen, onClose }) => {
         }
         // TODO: Implement actual login API call
         console.log('Login:', formData);
-        localStorage.setItem('id', 'user-' + Math.random());
+        const userId = 'user-' + Math.random();
+        localStorage.setItem('id', userId);
         localStorage.setItem('email', formData.email);
+        if (onAuthSuccess) {
+          onAuthSuccess({ id: userId, email: formData.email });
+        }
       } else {
         // Signup logic
         if (
@@ -64,8 +68,12 @@ const LoginModal = ({ isOpen, onClose }) => {
         }
         // TODO: Implement actual signup API call
         console.log('Signup:', formData);
-        localStorage.setItem('id', 'user-' + Math.random());
+        const userId = 'user-' + Math.random();
+        localStorage.setItem('id', userId);
         localStorage.setItem('email', formData.email);
+        if (onAuthSuccess) {
+          onAuthSuccess({ id: userId, email: formData.email });
+        }
       }
 
       // Close modal and reset form

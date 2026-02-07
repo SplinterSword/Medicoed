@@ -15,6 +15,7 @@ import CompareAndChat from "./pages/CompareAndChat"
 import UploadDashboard from "./pages/UploadDashboard"
 import Notes from "./pages/NotesGenerator"
 import Flashcards from "./pages/FlashCards"
+import { AuthProvider } from "../../contexts/AuthContext"
 
 function Dashboard({ handleLogout }) {
   const location = useLocation()
@@ -128,7 +129,8 @@ function Dashboard({ handleLogout }) {
   )
 
   return (
-    <div className="medicoed-dashboard">
+    <AuthProvider requireAuth>
+      <div className="medicoed-dashboard">
       {isMobile && (
         <button className="medicoed-toggle-sidebar-button" onClick={toggleSidebar}>
           <FiMenu />
@@ -172,7 +174,8 @@ function Dashboard({ handleLogout }) {
       )}
 
       {showNotes && <Notes showNotes={showNotes} />}
-    </div>
+      </div>
+    </AuthProvider>
   )
 }
 
