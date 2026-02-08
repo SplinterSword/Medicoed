@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { getApiUrl } from '../env-config';
 import '../styles/login-modal.css';
 
 const LoginModal = ({ isOpen, onClose, onAuthSuccess }) => {
@@ -36,13 +37,47 @@ const LoginModal = ({ isOpen, onClose, onAuthSuccess }) => {
           setLoading(false);
           return;
         }
-        // TODO: Implement actual login API call
-        console.log('Login:', formData);
-        const userId = 'user-' + Math.random();
-        localStorage.setItem('id', userId);
-        localStorage.setItem('email', formData.email);
+
+        const storedPartnerId = localStorage.getItem('partner_user_id');
+        const fallbackPartnerId = `partner-${Math.random().toString(36).slice(2)}`;
+        const uuid = typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : fallbackPartnerId;
+        const partnerUserId = storedPartnerId || `partner-${uuid}`;
+        const storedName = localStorage.getItem('fullName');
+        const derivedName = storedName || (formData.email || '').split('@')[0] || 'User';
+        const storedIsSubscribed = localStorage.getItem('isSubscribed');
+        const isSubscribed = storedIsSubscribed ? storedIsSubscribed === 'true' : false;
+
+        const loginResponse = await fetch(getApiUrl('/api/partner/webhook'), {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            id: partnerUserId,
+            email: formData.email,
+            name: derivedName,
+            isSubscribed,
+          }),
+        });
+
+        const loginData = await loginResponse.json();
+        if (!loginResponse.ok || !loginData.success) {
+          throw new Error(loginData.error || 'Failed to login');
+        }
+
+        const user = {
+          id: loginData.userId,
+          email: loginData.email,
+          partner_user_id: loginData.partnerUserId || partnerUserId,
+          subscription_status: loginData.subscription_status || '',
+          isSubscribed: Boolean(loginData.isSubscribed),
+          fullName: derivedName,
+        };
+
+        localStorage.setItem('user', JSON.stringify(user));
+
         if (onAuthSuccess) {
-          onAuthSuccess({ id: userId, email: formData.email });
+          onAuthSuccess({ id: loginData.userId, email: loginData.email });
         }
       } else {
         // Signup logic
@@ -66,13 +101,43 @@ const LoginModal = ({ isOpen, onClose, onAuthSuccess }) => {
           setLoading(false);
           return;
         }
-        // TODO: Implement actual signup API call
-        console.log('Signup:', formData);
-        const userId = 'user-' + Math.random();
-        localStorage.setItem('id', userId);
-        localStorage.setItem('email', formData.email);
+        const storedPartnerId = localStorage.getItem('partner_user_id');
+        const fallbackPartnerId = `partner-${Math.random().toString(36).slice(2)}`;
+        const uuid = typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : fallbackPartnerId;
+        const partnerUserId = storedPartnerId || `partner-${uuid}`;
+
+        const signupResponse = await fetch(getApiUrl('/api/partner/webhook'), {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            id: partnerUserId,
+            email: formData.email,
+            name: formData.fullName,
+            isSubscribed: false,
+            password: formData.password,
+          }),
+        });
+
+        const signupData = await signupResponse.json();
+        if (!signupResponse.ok || !signupData.success) {
+          throw new Error(signupData.error || 'Failed to create account');
+        }
+
+        const user = {
+          id: signupData.userId,
+          email: signupData.email,
+          partner_user_id: signupData.partnerUserId || partnerUserId,
+          subscription_status: signupData.subscription_status || '',
+          isSubscribed: Boolean(signupData.isSubscribed),
+          fullName: formData.fullName,
+        };
+
+        localStorage.setItem('user', JSON.stringify(user));
+      
         if (onAuthSuccess) {
-          onAuthSuccess({ id: userId, email: formData.email });
+          onAuthSuccess({ id: signupData.userId, email: signupData.email });
         }
       }
 
