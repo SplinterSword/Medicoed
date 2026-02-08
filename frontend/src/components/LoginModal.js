@@ -75,6 +75,12 @@ const LoginModal = ({ isOpen, onClose, onAuthSuccess }) => {
         };
 
         localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('id', user.id);
+        localStorage.setItem('email', user.email);
+        localStorage.setItem('partner_user_id', user.partner_user_id);
+        localStorage.setItem('subscription_status', user.subscription_status);
+        localStorage.setItem('isSubscribed', String(user.isSubscribed));
+        localStorage.setItem('fullName', user.fullName);
 
         if (onAuthSuccess) {
           onAuthSuccess({ id: loginData.userId, email: loginData.email });
@@ -135,7 +141,13 @@ const LoginModal = ({ isOpen, onClose, onAuthSuccess }) => {
         };
 
         localStorage.setItem('user', JSON.stringify(user));
-      
+        localStorage.setItem('id', user.id);
+        localStorage.setItem('email', user.email);
+        localStorage.setItem('partner_user_id', user.partner_user_id);
+        localStorage.setItem('subscription_status', user.subscription_status);
+        localStorage.setItem('isSubscribed', String(user.isSubscribed));
+        localStorage.setItem('fullName', user.fullName);
+
         if (onAuthSuccess) {
           onAuthSuccess({ id: signupData.userId, email: signupData.email });
         }
