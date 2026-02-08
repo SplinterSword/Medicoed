@@ -1,5 +1,5 @@
 // Environment configuration for API endpoints
-const BASE_API_URL = process.env.REACT_APP_BASE_API_URL || 'http://127.0.0.1:5000';
+const BASE_API_URL = process.env.BASE_API_URL || 'http://127.0.0.1:5000';
 
 export const API_CONFIG = {
   BASE_URL: BASE_API_URL,

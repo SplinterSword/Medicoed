@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import "../styles/flash-cards.css"
+import { getApiUrl } from '../../../env-config.js';
 import { getStoredUser, isValidStoredUser } from "../../../utils/userStorage"
 
 const Flashcards = () => {
@@ -146,7 +147,7 @@ useEffect(() => {
 
     try {
       // 1) Fetch user by ID
-      const response = await fetch("/api/get-user-by-userid", {
+      const response = await fetch(getApiUrl("/api/get-user-by-userid"), {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
