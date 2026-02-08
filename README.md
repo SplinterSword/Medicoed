@@ -1,2 +1,2 @@
 # Medicoed
-This is the frontend of Medicoed
+This is the frontend and backend of Medicoed
