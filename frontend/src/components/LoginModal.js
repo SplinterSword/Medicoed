@@ -239,10 +239,13 @@ const LoginModal = ({ isOpen, onClose, onAuthSuccess }) => {
           </button>
         </form>
 
+        {/*
         <div className="login-modal-divider">
           <span>or</span>
         </div>
+        */}
 
+        {/*
         <button className="login-google-button" disabled={loading}>
           <svg
             viewBox="0 0 24 24"
@@ -257,6 +260,7 @@ const LoginModal = ({ isOpen, onClose, onAuthSuccess }) => {
           </svg>
           Continue with Google
         </button>
+        */}
 
         <div className="login-modal-footer">
           <p>
