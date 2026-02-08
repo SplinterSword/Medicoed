@@ -18,8 +18,8 @@
       "API_KEY": "",
       "endpoint_secret": "",
       "PLANS":{
-          "p": "PREMIUM",
-          "q":"STANDARD"
+         "prod_RYU1k2YhUtzqra": "PREMIUM",
+         "prod_RYTxGMKf85IVRK":"STANDARD"
       }
   }
 }
