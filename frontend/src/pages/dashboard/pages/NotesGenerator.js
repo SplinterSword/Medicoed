@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import "../styles/notes-generator.css"
 import ReactMarkdown from "react-markdown"
 import { getApiUrl } from "../../../env-config.js"
+import { getStoredUser, isValidStoredUser } from "../../../utils/userStorage"
 
 const NotesGenerator = ({ showNotes, setShowNotes }) => {
   const [filenames, setFilenames] = useState([])
@@ -131,19 +132,17 @@ const NotesGenerator = ({ showNotes, setShowNotes }) => {
 
   useEffect(() => {
   const checkAuthAndFetchFiles = async () => {
-    const userId = localStorage.getItem("id")
-    if (!userId) {
+    const storedUser = getStoredUser()
+    if (!isValidStoredUser(storedUser)) {
       setIsLoggedIn(false)
       return
     }
+    const userId = storedUser.id
 
     setIsLoggedIn(true)
 
     // Load subscription status
-      const storedSubscriptionStatus = localStorage.getItem("isSubscribed")
-      if (storedSubscriptionStatus) {
-        setIsSubscribed(JSON.parse(storedSubscriptionStatus))
-      }
+      setIsSubscribed(Boolean(storedUser.isSubscribed))
 
     try {
       // 1) Fetch user by ID
@@ -254,7 +253,11 @@ const NotesGenerator = ({ showNotes, setShowNotes }) => {
     setIsLoading(true)
 
     try {
-      const userId = localStorage.getItem("id")
+      const storedUser = getStoredUser()
+      if (!isValidStoredUser(storedUser)) {
+        throw new Error("No valid user found in localStorage.")
+      }
+      const userId = storedUser.id
       const response = await fetch(getApiUrl("/api/ai-generated-notes"), {
         method: "POST",
         headers: {

@@ -3,6 +3,7 @@ import '../styles/compare-summaries.css';
 import remarkGfm from 'remark-gfm';
 import ReactMarkdown from 'react-markdown';
 import { getApiUrl } from '../../../env-config.js';
+import { getStoredUser, isValidStoredUser } from '../../../utils/userStorage';
 
 const CompareSummaries = () => {
   const [filenames, setFilenames] = useState([]);
@@ -133,10 +134,11 @@ const CompareSummaries = () => {
     const handleLoginWithStoredCredentials = async () => {
       try {
         const storedCredentials = localStorage.getItem('rx_chatbot_credentials');
-        const storedSubscriptionStatus = localStorage.getItem('isSubscribed');
-
-        if (storedSubscriptionStatus) {
-          setIsSubscribed(JSON.parse(storedSubscriptionStatus));
+        const storedUser = getStoredUser();
+        if (isValidStoredUser(storedUser)) {
+          setIsSubscribed(Boolean(storedUser.isSubscribed));
+        } else {
+          setIsSubscribed(false);
         }
         if (!storedCredentials) {
           throw new Error('No stored credentials found');

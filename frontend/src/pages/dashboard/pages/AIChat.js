@@ -6,6 +6,7 @@ import ReactMarkdown from "react-markdown"
 import remarkGfm from "remark-gfm"
 import "../styles/ai-chat.css"
 import { getApiUrl } from "../../../env-config.js"
+import { getStoredUser, isValidStoredUser } from "../../../utils/userStorage"
 
 const AIChat = () => {
   const [userId, setUserId] = useState("")
@@ -142,13 +143,14 @@ const AIChat = () => {
   useEffect(() => {
     const handleLoginWithStoredId = async () => {
       try {
-        const storedUserId = localStorage.getItem("id")
+        const storedUser = getStoredUser()
 
-        if (!storedUserId) {
+        if (!isValidStoredUser(storedUser)) {
           setIsLoggedIn(false)
           return
         }
 
+        const storedUserId = storedUser.id
         setUserId(storedUserId)
         setIsLoggedIn(true)
 
@@ -166,10 +168,7 @@ const AIChat = () => {
 
           setUserEmail(parsed?.email)
 
-          const storedSubscriptionStatus = localStorage.getItem("isSubscribed")
-          if (storedSubscriptionStatus) {
-            setIsSubscribed(JSON.parse(storedSubscriptionStatus))
-          }
+          setIsSubscribed(Boolean(storedUser.isSubscribed))
 
           const storedPlanStatus = localStorage.getItem("isPremiumPlan")
           if (storedPlanStatus) {

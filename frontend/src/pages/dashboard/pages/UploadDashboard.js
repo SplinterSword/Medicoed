@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import "../styles/upload-dashboard.css"
 import { getApiUrl } from "../../../env-config.js"
+import { getStoredUser, isValidStoredUser } from "../../../utils/userStorage"
 
 function UploadDashboard() {
   const [filenames, setFilenames] = useState([])
@@ -10,9 +11,20 @@ function UploadDashboard() {
   useEffect(() => {
     const init = async () => {
       try {
+        const storedUser = getStoredUser()
+        let email = ""
+
+        if (isValidStoredUser(storedUser)) {
+          email = storedUser.email
+        } else {
         const storedCredentials = localStorage.getItem("rx_chatbot_credentials")
-        if (!storedCredentials) return
-        const { email } = JSON.parse(storedCredentials)
+          if (!storedCredentials) return
+          const parsedCredentials = JSON.parse(storedCredentials)
+          email = parsedCredentials?.email || ""
+        }
+
+        if (!email) return
+
         const filenamesResponse = await fetch(getApiUrl(`/api/dashboard?email=${email}`), {
           method: "GET",
           credentials: "include",

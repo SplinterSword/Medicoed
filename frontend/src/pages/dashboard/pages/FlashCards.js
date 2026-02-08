@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import "../styles/flash-cards.css"
+import { getStoredUser, isValidStoredUser } from "../../../utils/userStorage"
 
 const Flashcards = () => {
   const [userEmail, setUserEmail] = useState("")
@@ -131,19 +132,17 @@ const Flashcards = () => {
 
 useEffect(() => {
   const checkAuthAndFetchFiles = async () => {
-    const userId = localStorage.getItem("id")
-    if (!userId) {
+    const storedUser = getStoredUser()
+    if (!isValidStoredUser(storedUser)) {
       setIsLoggedIn(false)
       return
     }
+    const userId = storedUser.id
 
     setIsLoggedIn(true)
 
     // Load subscription status
-      const storedSubscriptionStatus = localStorage.getItem("isSubscribed")
-      if (storedSubscriptionStatus) {
-        setIsSubscribed(JSON.parse(storedSubscriptionStatus))
-      }
+      setIsSubscribed(Boolean(storedUser.isSubscribed))
 
     try {
       // 1) Fetch user by ID
@@ -236,7 +235,12 @@ useEffect(() => {
     if (selectedFile) {
       setLoading(true)
       try {
-        const userId = localStorage.getItem("id")
+        const storedUser = getStoredUser()
+        if (!isValidStoredUser(storedUser)) {
+          console.error("No valid user found in localStorage.")
+          return
+        }
+        const userId = storedUser.id
         const response = await fetch("/api/generate-flashcards", {
           method: "POST",
           headers: {

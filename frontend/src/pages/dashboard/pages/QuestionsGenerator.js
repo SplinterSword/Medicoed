@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import "../styles/questions-generator.css"
 import { getApiUrl } from "../../../env-config.js"
+import { getStoredUser, isValidStoredUser } from "../../../utils/userStorage"
 
 const QuestionsGenerator = () => {
   const [userEmail, setUserEmail] = useState("")
@@ -134,11 +135,12 @@ const QuestionsGenerator = () => {
 
   useEffect(() => {
   const checkAuthAndFetchUser = async () => {
-    const userId = localStorage.getItem("id")
-    if (!userId) {
+    const storedUser = getStoredUser()
+    if (!isValidStoredUser(storedUser)) {
       setIsLoggedIn(false)
       return
     }
+    const userId = storedUser.id
 
     try {
       // Fetch user by ID
@@ -203,10 +205,7 @@ const QuestionsGenerator = () => {
       setIsLoggedIn(true)
 
       // Load subscription status
-      const storedSubscriptionStatus = localStorage.getItem("isSubscribed")
-      if (storedSubscriptionStatus) {
-        setIsSubscribed(JSON.parse(storedSubscriptionStatus))
-      }
+      setIsSubscribed(Boolean(storedUser.isSubscribed))
 
       // Fetch filenames using email
       const filenamesResponse = await fetch(
@@ -240,7 +239,12 @@ const QuestionsGenerator = () => {
     if (selectedFile) {
       setLoading(true)
       try {
-        const userId = localStorage.getItem("id")
+        const storedUser = getStoredUser()
+        if (!isValidStoredUser(storedUser)) {
+          console.error("No valid user found in localStorage.")
+          return
+        }
+        const userId = storedUser.id
         const response = await fetch(getApiUrl("/api/get-quiz"), {
           method: "POST",
           headers: {

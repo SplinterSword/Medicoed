@@ -4,6 +4,7 @@ import 'react-quill/dist/quill.snow.css';
 import '../styles/notes-editor.css';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 import { getApiUrl } from '../../../env-config.js';
+import { getStoredUser, isValidStoredUser } from '../../../utils/userStorage';
 
 const NotesEditor = () => {
   const [files, setFiles] = useState([]);
@@ -16,11 +17,12 @@ const NotesEditor = () => {
 
   useEffect(() => {
     const checkAuthAndFetchFiles = async () => {
-      const userId = localStorage.getItem('id');
-      if (!userId) {
+      const storedUser = getStoredUser();
+      if (!isValidStoredUser(storedUser)) {
         console.error('No user id found in localStorage');
         return;
       }
+      const userId = storedUser.id;
 
       try {
         // 1) Get user by id

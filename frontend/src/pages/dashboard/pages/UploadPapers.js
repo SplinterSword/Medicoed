@@ -6,6 +6,7 @@ import { AiOutlineDelete } from "react-icons/ai"
 import { FiUpload } from "react-icons/fi"
 import { Link } from "react-router-dom"
 import noDeleteFiles from "../noDeleteFiles.json"
+import { getStoredUser, isValidStoredUser } from "../../../utils/userStorage"
 
 const UploadPapers = () => {
   const [attachedFiles, setAttachedFiles] = useState([])
@@ -32,10 +33,14 @@ const UploadPapers = () => {
 
   const NO_DELETE_SET = new Set(noDeleteFiles?.filenames || [])
   const canShowDelete = (filename) => !NO_DELETE_SET.has(filename)
+  const getUserId = () => {
+    const storedUser = getStoredUser()
+    return isValidStoredUser(storedUser) ? storedUser.id : null
+  }
 
   useEffect(() => {
   const checkAuthAndFetchFiles = async () => {
-    const userId = localStorage.getItem("id")
+    const userId = getUserId()
     if (!userId) {
       setIsLoggedIn(false)
       return
@@ -108,7 +113,10 @@ const UploadPapers = () => {
 
     const fetchDisabledButtons = async () => {
       try {
-        const userId = localStorage.getItem("id")
+        const userId = getUserId()
+        if (!userId) {
+          return
+        }
         const response = await fetch("/api/get-disabled-buttons", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -211,7 +219,7 @@ const UploadPapers = () => {
     setLoading(true)
 
     try {
-      const userId = localStorage.getItem("id")
+      const userId = getUserId()
       if (!userId) {
         throw new Error("User ID not found")
       }
@@ -302,7 +310,10 @@ const UploadPapers = () => {
 
   const handleFileDelete = async (filename) => {
     try {
-      const userId = localStorage.getItem("id")
+      const userId = getUserId()
+      if (!userId) {
+        return
+      }
       const response = await fetch("/api/delete-file", {
         method: "POST",
         headers: {
@@ -332,7 +343,7 @@ const UploadPapers = () => {
     setLoading(true)
 
     try {
-      const userId = localStorage.getItem("id")
+      const userId = getUserId()
       if (!userId) {
         throw new Error("User ID not found")
       }

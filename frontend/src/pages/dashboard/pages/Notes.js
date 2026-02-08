@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import "../styles/notes.css"
+import { getStoredUser, isValidStoredUser } from "../../../utils/userStorage"
 
 const NotesPage = ({ showNotes, setShowNotes }) => {
   const [userEmail, setUserEmail] = useState("")
@@ -13,10 +14,11 @@ const NotesPage = ({ showNotes, setShowNotes }) => {
 
   useEffect(() => {
   const checkAuthAndFetchUser = async () => {
-    const userId = localStorage.getItem("id")
-    if (!userId) {
+    const storedUser = getStoredUser()
+    if (!isValidStoredUser(storedUser)) {
       return
     }
+    const userId = storedUser.id
 
     try {
       // Fetch user by ID
@@ -106,8 +108,8 @@ const NotesPage = ({ showNotes, setShowNotes }) => {
 
 
 const fetchNotes = async () => {
-  const userId = localStorage.getItem("id")
-  if (!userId) return
+  const storedUser = getStoredUser()
+  if (!isValidStoredUser(storedUser)) return
 
   // Use the email we already got from /api/get-user-by-userid
   if (!userEmail) {
@@ -142,8 +144,8 @@ const fetchNotes = async () => {
 
   const handleAddNote = async (event) => {
     event.preventDefault()
-    const userId = localStorage.getItem("id")
-    if (!userId) return
+    const storedUser = getStoredUser()
+    if (!isValidStoredUser(storedUser)) return
 
     try {
       const response = await fetch("/api/add-note", {
@@ -171,8 +173,8 @@ const fetchNotes = async () => {
   }
 
   const handleDeleteNote = async (filename, note) => {
-    const userId = localStorage.getItem("id")
-    if (!userId) return
+    const storedUser = getStoredUser()
+    if (!isValidStoredUser(storedUser)) return
 
     try {
       const response = await fetch("/api/delete-note", {

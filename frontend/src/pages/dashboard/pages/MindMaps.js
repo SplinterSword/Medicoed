@@ -5,6 +5,7 @@ import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch"
 import { BsZoomIn, BsZoomOut } from "react-icons/bs"
 import "../styles/mind-maps.css"
 import { getApiUrl } from "../../../env-config.js"
+import { getStoredUser, isValidStoredUser } from "../../../utils/userStorage"
 
 const MindMapGenerator = ({ onMindMapGenerated }) => {
   const [userEmail, setUserEmail] = useState("")
@@ -130,19 +131,17 @@ const MindMapGenerator = ({ onMindMapGenerated }) => {
 
 useEffect(() => {
   const checkAuthAndFetchFiles = async () => {
-    const userId = localStorage.getItem("id")
-    if (!userId) {
+    const storedUser = getStoredUser()
+    if (!isValidStoredUser(storedUser)) {
       setIsLoggedIn(false)
       return
     }
+    const userId = storedUser.id
 
     setIsLoggedIn(true)
 
     // Load subscription status
-      const storedSubscriptionStatus = localStorage.getItem("isSubscribed")
-      if (storedSubscriptionStatus) {
-        setIsSubscribed(JSON.parse(storedSubscriptionStatus))
-      }
+      setIsSubscribed(Boolean(storedUser.isSubscribed))
 
     try {
       // 1) Fetch user by ID
@@ -235,7 +234,12 @@ useEffect(() => {
     if (selectedFile) {
       setLoading(true)
       try {
-        const userId = localStorage.getItem("id")
+        const storedUser = getStoredUser()
+        if (!isValidStoredUser(storedUser)) {
+          console.error("No valid user found in localStorage.")
+          return
+        }
+        const userId = storedUser.id
         const response = await fetch(getApiUrl("/api/generate-mind-map"), {
           method: "POST",
           headers: {

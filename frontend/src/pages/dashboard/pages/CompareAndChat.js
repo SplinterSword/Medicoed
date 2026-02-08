@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import '../styles/compare-and-chat.css';
+import { getStoredUser, isValidStoredUser } from '../../../utils/userStorage';
 
 const CompareAndChat = () => {
   const [userEmail, setUserEmail] = useState('');
@@ -131,10 +132,11 @@ const CompareAndChat = () => {
     const handleLoginWithStoredCredentials = async () => {
       try {
         const storedCredentials = localStorage.getItem('rx_chatbot_credentials');
-        const storedSubscriptionStatus = localStorage.getItem('isSubscribed');
-
-        if (storedSubscriptionStatus) {
-          setIsSubscribed(JSON.parse(storedSubscriptionStatus));
+        const storedUser = getStoredUser();
+        if (isValidStoredUser(storedUser)) {
+          setIsSubscribed(Boolean(storedUser.isSubscribed));
+        } else {
+          setIsSubscribed(false);
         }
         if (!storedCredentials) {
           throw new Error('No stored credentials found');
